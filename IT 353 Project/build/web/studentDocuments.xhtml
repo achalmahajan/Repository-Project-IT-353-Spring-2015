@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title> Facelet Title</title>
+        <!-- Bootstrap -->
+        <link href="resources/css/bootstrap.min.css" rel="stylesheet"></link>
+    </h:head>
+    <h:body>
+
+
+        <!-- navigational Bar -->
+        <div class="container-fluid">
+            <div class="container">
+
+                <nav class="navbar navbar-inverse navbar-static-top">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapse" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <h:form>
+                                <h:commandLink class="navbar-brand" action="studentHome" > IT 353 Repository Project</h:commandLink>
+                            </h:form>
+                        </div>
+                        <h:form>
+                            <f:event listener="#{loginController.checkIfLoggedIn}" type="preRenderView" />
+                            <f:event type="preRenderView" listener="#{studentProfileController.checkStudentDocuments}"/>
+
+                            <div id="navbar" class="navbar-collapse collapse">
+                                <ul class="nav navbar-nav">
+                                    <li> <h:commandLink  action="studentProfile?faces-redirect= true" value="Profile" /></li>
+                                    <li class="active"> <h:commandLink  action="studentDocuments?faces-redirect= true" value="Documents" /></li>
+                                    <li> <h:commandLink action="studentSettings?faces-redirect= true" value="Settings" /></li>
+
+                                    <li> 
+                                        <div class="navbar-form navbar-left" >
+                                            <div class="input-group">
+
+                                                <h:inputText class="form-control"  value="#{searchController.searchKeyword}" />
+                                                <div class="input-group-btn">
+                                                   
+                                                    <h:commandLink type="button" class="btn btn-primary" action="demoSearch.xhtml">
+                                                        Search
+                                                    </h:commandLink>
+                                                </div> 
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <ul class="nav navbar-right">
+                                    <li><h:commandLink action="#{loginController.logout()}" value="Log Out" /></li>
+                                </ul>
+                            </div>
+                        </h:form>
+                    </div>
+                </nav>
+
+            </div>
+        </div>
+        <!-- Navigational bar close-->
+        <h:form enctype="multipart/form-data">
+            UserName: <h:inputText id="uName" value="#{studentProfileBean.userName}" readonly="true"/><br /><br/>
+
+            Project/Thesis Name: <h:inputText id="projectName" value="#{studentProfileController.theModel.projectName}" /><br /><br/>
+
+            Keywords:  <h:inputText id="keywords" value="#{studentProfileController.theModel.keywords}" /><br /><br/>
+
+            Abstract: <h:inputTextarea id="abstract" value="#{studentProfileController.theModel.projectAbstract}" /><br /><br/>
+
+            Upload Project Proposal: <p:fileUpload value="#{studentProfileController.theModel.initialProposal}" mode="simple" /> <a href="#{studentProfileController.theModel.downloadFileProposal.name}"> File </a><br /><br/>
+
+            Upload Final Project Proposal: <p:fileUpload value="#{studentProfileController.theModel.finalProposal}" mode="simple" /><br /><br/>
+
+            Live Link for Project: <h:inputText id="liveLink" value="#{studentProfileController.theModel.liveLink}" /><br /><br/>
+
+            <h:commandButton id="submitID" value="Upload" action="#{studentProfileController.documentUpload()}"/> <br /><br/>
+        </h:form>
+
+        <h:form>
+            <p:commandButton value="Download Project Proposal" ajax="false" icon="ui-icon-arrowthick-1-s">
+                <p:fileDownload value="#{studentProfileController.download()}" />
+            </p:commandButton>
+        </h:form>
+    </h:body>
+</html>
+

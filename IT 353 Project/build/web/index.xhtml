@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <title> IT 353 Repository Project </title>
+
+        <!-- Bootstrap -->
+        <link href="resources/css/bootstrap.min.css" rel="stylesheet"></link>
+        <link href="resources/css/bootstrap.css" rel="stylesheet"></link>
+    </h:head>
+    <h:body>
+
+        <!-- navigational Bar -->
+        <div class="container-fluid">
+            <div class="container">
+
+                <nav class="navbar navbar-inverse navbar-static-top">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapse" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <h:form>
+                                <h:commandLink class="navbar-brand" action="index?faces-redirect=true"> IT 353 Repository Project</h:commandLink>
+                            </h:form>
+                        </div>
+                        <h:form>
+                            <div id="navbar" class="navbar-collapse collapse">
+                                <ul class="nav navbar-nav">
+                                    <li> <h:commandLink  action="signUp?faces-redirect=true" value="Sign Up" /></li>
+                                    <li><h:commandLink action="login?faces-redirect=true" value="Login" /></li>
+                                </ul>
+                            </div>
+                        </h:form>
+                    </div>
+                </nav>
+
+            </div>
+        </div>
+        <!-- Navigational bar close-->
+
+        <div class="jumbotron">
+            <div class="container">
+                <h2>Illinois State University - Thesis/Project Repository</h2>   
+            </div>
+        </div>
+
+
+
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="resources/js/bootstrap.min.js"></script>
+        <br />
+    </h:body>
+</html>

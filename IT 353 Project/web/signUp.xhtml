@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html" 
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Repository Sign Up</title>
+        <!-- Bootstrap -->
+        <link href="resources/css/bootstrap.min.css" rel="stylesheet"></link>
+    </h:head>
+    <h:body>
+
+        <!-- navigational Bar -->
+        <div class="navbar-wrapper">
+            <div class="container">
+
+                <nav class="navbar navbar-inverse navbar-static-top">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <h:form>
+                                <h:commandLink class="navbar-brand" action="index" > IT 353 Repository Project</h:commandLink>
+                            </h:form>
+                        </div>
+                        <h:form>
+                            <div id="navbar" class="navbar-collapse collapse">
+                                <ul class="nav navbar-nav">
+                                    <li  class="active"><h:commandLink class="active" action="signUp?faces-redirect=true" value="Sign Up" /></li>
+                                    <li><h:commandLink action="login?faces-redirect=true" value="Login" /></li>
+                                </ul>
+                            </div>
+                        </h:form>
+                    </div>
+                </nav>
+
+            </div>
+        </div>
+
+        <h1>Sign Up</h1>
+
+        <h:form enctype="multipart/form-data">
+            First Name: <h:inputText id="fName" required="true" requiredMessage="The first name field is empty" value="#{signUpController.theModel.firstName}" /> <br />
+            <h:message for="fName" errorStyle="color:red; display:block"/> <br />
+
+            Last Name: <h:inputText id="lName" required="true" requiredMessage="The field is empty" value="#{signUpController.theModel.lastName}" /> <br /><br/>
+
+            UserName: <h:inputText id="uName" required="true" requiredMessage="The field is empty" value="#{signUpController.theModel.userName}" /><br /><br/>
+
+            Password:  <h:inputSecret id="password" required="true" requiredMessage="The field is empty" value="#{signUpController.theModel.password}" /><br /><br/>
+
+            Confirm Password:   <h:inputSecret id="confirmPassword"  required="true" requiredMessage="The field is empty" value="#{signUpController.theModel.confirmPassword}" /><br /> <br/>
+
+            Email:   <h:inputText id="email" required="true" requiredMessage="The field is empty"  value="#{signUpController.theModel.email}" /><br /> <br/>
+
+            Security Question: <h:inputText id="sQuestion" required="true" requiredMessage="The field is empty" value="#{signUpController.theModel.securityQuestion}" /><br /><br/>
+
+            Security Answer:  <h:inputText id="sAnswer" required="true" requiredMessage="The field is empty" value="#{signUpController.theModel.securityAnswer}" /><br /> <br/>
+
+
+            Type: <h:selectOneMenu id="loginType" value="#{signUpController.theModel.loginType}">
+                <f:selectItem id="student" itemLabel="Student" itemValue="student" />
+                <f:selectItem id="professor" itemLabel="Professor" itemValue="professor" />
+            </h:selectOneMenu><br/><br/>
+
+            Reason for an Account: <h:inputTextarea id="accountReason" required="true" rows="6" requiredMessage="the field is empty" value="#{signUpController.theModel.accountReason}" /> <br/> <br/>
+
+            <h:commandButton id="submitID" value="Submit" action="#{signUpController.signUp()}"/>
+
+        </h:form>
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="resources/js/bootstrap.min.js"></script>  
+    </h:body>
+</html>
+

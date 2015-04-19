@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title> Hello Admin </title>
+        <!-- Bootstrap -->
+        <link href="resources/css/bootstrap.min.css" rel="stylesheet"></link>
+    </h:head>
+    <h:body>
+        <!-- navigational Bar -->
+        <div class="navbar-wrapper">
+            <div class="container">
+
+                <nav class="navbar navbar-inverse navbar-static-top">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <h:form>
+                                <h:commandLink class="navbar-brand" action="index" > IT 353 Repository Project</h:commandLink>
+                            </h:form>
+                        </div>
+                        <h:form>
+                            <f:event listener="#{loginController.checkIfLoggedIn}" type="preRenderView" />
+                            
+                            <div id="navbar" class="navbar-collapse collapse">
+                                <ul class="nav navbar-nav">
+                                    <li> <h:commandLink  action="approveStudents?faces-redirect=true" value="Students Need Approval" /></li>
+<!--                                    <li> <h:commandLink action="login" value="Login" /></li>-->
+                                </ul>
+                                <ul class="nav navbar-right">
+                                     <li><h:commandLink action="#{loginController.logout()}" value="Log Out" /></li>
+                                </ul>
+                            </div>
+                        </h:form>
+                    </div>
+                </nav>
+
+            </div>
+        </div>
+        <!-- Navigational bar close-->
+
+       
+         <div class="jumbotron">
+            <div class="container">
+                <h2> Hello Admin,</h2>   
+            </div>
+        </div>
+    </h:body>
+</html>
+
