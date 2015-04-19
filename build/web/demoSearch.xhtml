@@ -8,12 +8,68 @@
     <h:head>
         <title>Search</title>
         <!-- Bootstrap -->
+        <link href="resources/css/bootstrap.css" rel="stylesheet"></link>
         <link href="resources/css/bootstrap.min.css" rel="stylesheet"></link>
     </h:head>
     <h:body>
+        <body background="resources/images/ISU.gif" class="img-responsive" />
+<!-- navigational Bar -->
+        <div class="container-fluid">
+            <div class="container">
 
+                <nav class="navbar navbar-inverse navbar-fixed-top">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <h:form>
+                                <h:commandLink class="navbar-brand" action="studentHome" > IT 353 Repository Project</h:commandLink>
+                            </h:form>
+                        </div>
+                        <h:form>
+                            <f:event listener="#{loginController.checkIfLoggedIn}" type="preRenderView" />
+
+                            <div id="navbar" class="navbar-collapse collapse">
+                                <ul class="nav navbar-nav">
+                                    <li> <h:commandLink  action="studentProfile?faces-redirect= true" value="Profile" /></li>
+                                    <li> <h:commandLink action="studentDocuments?faces-redirect= true" value="Documents" /></li>
+                                    <li> <h:commandLink action="login" value="Settings" /></li>
+                                    <li> 
+                                        <div class="navbar-form navbar-left" >
+                                            <div class="input-group">
+
+                                                <h:inputText class="form-control"  value="#{searchController.searchKeyword}" />
+                                                <div class="input-group-btn">
+                                                   
+                                                    <h:commandLink type="button" class="btn btn-primary" action="demoSearch.xhtml?faces-redirect=true">
+                                                        Search
+                                                    </h:commandLink>
+                                                </div> 
+                                            </div>
+                                        </div>
+                                    </li>
+
+                                </ul>
+
+                                <ul class="nav navbar-right">
+                                    <li><h:commandLink action="#{loginController.logout()}" value="Log Out" /></li>
+                                </ul>
+                            </div>
+                        </h:form>
+                    </div>
+                </nav>
+
+            </div>
+        </div>
+        <!-- Navigational bar close-->
+<br /><br /><br /><br />
+        
+        
         <h:form>
-
             <h:dataTable value="#{searchController.getTheSearchBean()}" var="c"
                          styleClass="order-table"
                          headerClass="order-table-header"
@@ -24,7 +80,7 @@
                     <f:facet name="header">
                         User name
                     </f:facet> 
-                    #{c.userName}
+                     #{c.userName}
                 </h:column>
 
                 <h:column>

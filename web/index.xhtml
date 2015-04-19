@@ -10,16 +10,18 @@
         <title> IT 353 Repository Project </title>
 
         <!-- Bootstrap -->
-        <link href="resources/css/bootstrap.min.css" rel="stylesheet"></link>
         <link href="resources/css/bootstrap.css" rel="stylesheet"></link>
+        <link href="resources/css/bootstrap.min.css" rel="stylesheet"></link>
+        <link href="resources/css/style1.css" rel="stylesheet"></link>
     </h:head>
     <h:body>
+        <body background="resources/images/ISU.gif" class="img-responsive" />
 
         <!-- navigational Bar -->
         <div class="container-fluid">
             <div class="container">
 
-                <nav class="navbar navbar-inverse navbar-static-top">
+                <nav class="navbar navbar-inverse navbar-fixed-top">
                     <div class="container">
                         <div class="navbar-header">
                             <button type="button" class="navbar-toggle collapse" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -37,6 +39,20 @@
                                 <ul class="nav navbar-nav">
                                     <li> <h:commandLink  action="signUp?faces-redirect=true" value="Sign Up" /></li>
                                     <li><h:commandLink action="login?faces-redirect=true" value="Login" /></li>
+                                    <li> 
+                                        <div class="navbar-form navbar-left" >
+                                            <div class="input-group">
+
+                                                <h:inputText class="form-control"  value="#{searchController.searchKeyword}" />
+                                                <div class="input-group-btn">
+
+                                                    <h:commandLink type="button" class="btn btn-primary" action="demoSearch.xhtml">
+                                                        Search
+                                                    </h:commandLink>
+                                                </div> 
+                                            </div>
+                                        </div>
+                                    </li>
                                 </ul>
                             </div>
                         </h:form>
@@ -53,8 +69,71 @@
             </div>
         </div>
 
+        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true" onmouseover="">
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingOne">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Instructor
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                    <div class="panel-body">
+
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingTwo">
+                    <h4 class="panel-title">
+                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            ISU Calendar
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                    <div class="panel-body">
+
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingThree">
+                    <h4 class="panel-title">
+                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            Support
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                    <div class="panel-body">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br /><br /><br /><br /> <br /><br /><br /><br /><br /><br /><br /> <br /> <br /> <br /> <br /> <br /><br /><br /> <br /><br />
 
 
+        <div class="half" id="footeruniversity">
+            <p align="center">
+                <span id="ou_de"></span> <span id="c_year">2013</span> <a href="http://IllinoisState.edu">Illinois State University</a>, 
+                <a href="http://maps.illinoisstate.edu">Normal, IL</a>
+
+                <div>
+                    <p class="footer_college">
+                        <a href="http://my.illinoisstate.edu">My.IllinoisState.edu</a><br/>
+                        <a href="http://supportcenter.illinoisstate.edu">Technology Support Center</a><br/></p>
+                </div>
+            </p></div>
+        <div id="footersocial" align="center">
+            <p>Stay Connected</p>
+            <a id="footersocial-one" title="" href="http://IllinoisState.edu/Facebook" target="_blank"><span class="visuallyhidden">Facebook</span></a>
+            <a id="footersocial-two" title="" href="http://IllinoisState.edu/Twitter" target="_blank"><span class="visuallyhidden">Twitter</span></a> 
+            <a id="footersocial-three" title="" href="http://IllinoisState.edu/LinkedIN" target="_blank"><span class="visuallyhidden">LinkedIn</span></a> 
+
+        </div>
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
