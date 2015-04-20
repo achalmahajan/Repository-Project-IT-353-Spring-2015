@@ -7,10 +7,11 @@
     <h:head>
         <title> Facelet Title</title>
         <!-- Bootstrap -->
+        <link href="resources/css/bootstrap.css" rel="stylesheet"></link>
         <link href="resources/css/bootstrap.min.css" rel="stylesheet"></link>
     </h:head>
     <h:body>
-
+        <body background="resources/images/ISU.gif" class="img-responsive" />
 
         <!-- navigational Bar -->
         <div class="container-fluid">
@@ -45,7 +46,7 @@
 
                                                 <h:inputText class="form-control"  value="#{searchController.searchKeyword}" />
                                                 <div class="input-group-btn">
-                                                   
+
                                                     <h:commandLink type="button" class="btn btn-primary" action="demoSearch.xhtml">
                                                         Search
                                                     </h:commandLink>
@@ -65,29 +66,80 @@
             </div>
         </div>
         <!-- Navigational bar close-->
-        <h:form enctype="multipart/form-data">
-            UserName: <h:inputText id="uName" value="#{studentProfileBean.userName}" readonly="true"/><br /><br/>
+        <br/><br/><br/><br/>
+        <!--        <h:form enctype="multipart/form-data">-->
+        <div> 
+            <div class="container" style ="height:750px; width:1020px; padding:0;">
+                <h:form styleClass="form-horizontal">
+                    <h3 class="col-sm-offset-4 col-sm-6">Update</h3> <br/> <br/>
+                    <div class="form-group">
+                        <h:outputLabel value="UserName:" styleClass="control-label col-sm-4"/>
+                        <div class="col-sm-3">
+                            <h:inputText style="height:30px" id="uName" value="#{studentProfileBean.userName}" readonly="true" styleClass="form-control"/>
+                        </div>
+                    </div>
 
-            Project/Thesis Name: <h:inputText id="projectName" value="#{studentProfileController.theModel.projectName}" /><br /><br/>
+                    <div class="form-group">
+                        <h:outputLabel value="Project/Thesis Name: " styleClass="control-label col-sm-4"/>
+                        <div class="col-sm-3">
+                            <h:inputText style="height:30px" id="projectName" value="#{studentProfileController.theModel.projectName}" styleClass="form-control"/>
+                        </div>
+                    </div>
 
-            Keywords:  <h:inputText id="keywords" value="#{studentProfileController.theModel.keywords}" /><br /><br/>
+                    <div class="form-group">
+                        <h:outputLabel value="Keywords: " styleClass="control-label col-sm-4"/>
+                        <div class="col-sm-3">
+                            <h:inputText style="height:30px" id="keywords" value="#{studentProfileController.theModel.keywords}" styleClass="form-control"/>
+                        </div>
+                    </div>
 
-            Abstract: <h:inputTextarea id="abstract" value="#{studentProfileController.theModel.projectAbstract}" /><br /><br/>
 
-            Upload Project Proposal: <p:fileUpload value="#{studentProfileController.theModel.initialProposal}" mode="simple" /> <a href="#{studentProfileController.theModel.downloadFileProposal.name}"> File </a><br /><br/>
+                    <div class="form-group">
+                        <h:outputLabel value="Abstract:" styleClass="control-label col-sm-4"/>
+                        <div class="col-sm-3">
+                            <h:inputText style="height:30px" id="abstract" value="#{studentProfileController.theModel.projectAbstract}"  styleClass="form-control"/>
+                        </div>
+                    </div>
 
-            Upload Final Project Proposal: <p:fileUpload value="#{studentProfileController.theModel.finalProposal}" mode="simple" /><br /><br/>
 
-            Live Link for Project: <h:inputText id="liveLink" value="#{studentProfileController.theModel.liveLink}" /><br /><br/>
+                    <div class="form-group">
+                        <h:outputLabel value="Upload Initial Project Proposal:" styleClass="control-label col-sm-4"/>
+                        <div class="col-sm-3">
+                            <p:fileUpload style="height:30px" value="#{studentProfileController.theModel.initialProposal}" mode="simple" styleClass="form-control" />
+                        </div>
+                    </div>
 
-            <h:commandButton id="submitID" value="Upload" action="#{studentProfileController.documentUpload()}"/> <br /><br/>
-        </h:form>
 
-        <h:form>
-            <p:commandButton value="Download Project Proposal" ajax="false" icon="ui-icon-arrowthick-1-s">
-                <p:fileDownload value="#{studentProfileController.download()}" />
-            </p:commandButton>
-        </h:form>
+                    <div class="form-group">
+                        <h:outputLabel value="Upload Final Project Proposal:" styleClass="control-label col-sm-4"/>
+                        <div class="col-sm-3">
+                            <p:fileUpload style="height:30px" value="#{studentProfileController.theModel.finalProposal}" mode="simple" styleClass="form-control" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <h:outputLabel value=" Live Link for Project:" styleClass="control-label col-sm-4"/>
+                        <div class="col-sm-3">
+                            <h:inputText style="height:30px" id="liveLink" value="#{studentProfileController.theModel.liveLink}"  styleClass="form-control"/>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <div class="col-sm-offset-4 col-sm-3">
+                            <h:commandButton style="height:40px" id="submitID" value="Upload" action="#{studentProfileController.documentUpload()}" styleClass="btn btn-lg btn-primary btn-block"/>
+                        </div>
+                    </div>
+                    <p:commandButton value="Download Project Proposal" ajax="false" icon="ui-icon-arrowthick-1-s">
+                        <p:fileDownload value="#{studentProfileController.download()}" />
+                    </p:commandButton>
+                </h:form>
+            </div>
+        </div>
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="resources/js/bootstrap.min.js"></script>  
     </h:body>
 </html>
 

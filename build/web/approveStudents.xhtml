@@ -8,10 +8,11 @@
     <h:head>
         <title>Provide Approval</title>
         <!-- Bootstrap -->
+        <link href="resources/css/bootstrap.css" rel="stylesheet"></link>
         <link href="resources/css/bootstrap.min.css" rel="stylesheet"></link>
     </h:head>
     <h:body>
-
+        <body background="resources/images/ISU.gif" class="img-responsive" />
         <!-- navigational Bar -->
         <div class="navbar-wrapper">
             <div class="container">
@@ -47,7 +48,7 @@
             </div>
         </div>
         <!-- Navigational bar close-->
-
+        <br/><br/><br/>
         <h:form>
 
             <h:dataTable value="#{approveStudentsController.getProfileBeans()}" var="c"
@@ -105,7 +106,7 @@
                         Reject
                     </button>
 
-                    
+
 
                     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
@@ -125,18 +126,8 @@
                             </div>
                         </div>
                     </div>
-
                     <!--test-->
-
-
-
-
-
-
-
-
                 </h:column>
-
             </h:dataTable>
 
 

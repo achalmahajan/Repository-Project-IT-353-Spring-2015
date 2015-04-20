@@ -46,7 +46,7 @@
                                                 <h:inputText class="form-control"  value="#{searchController.searchKeyword}" />
                                                 <div class="input-group-btn">
 
-                                                    <h:commandLink type="button" class="btn btn-primary" action="demoSearch.xhtml">
+                                                    <h:commandLink type="button" class="btn btn-primary" action="demoSearch1.xhtml">
                                                         Search
                                                     </h:commandLink>
                                                 </div> 
@@ -113,31 +113,26 @@
                 </div>
             </div>
         </div>
-        <br /><br /><br /><br /> <br /><br /><br /><br /><br /><br /><br /> <br /> <br /> <br /> <br /> <br /><br /><br /> <br /><br />
+        <br /><br /><br /><br /><br/><br/><br/>
 
-
-        <div class="half" id="footeruniversity">
-            <p align="center">
-                <span id="ou_de"></span> <span id="c_year">2013</span> <a href="http://IllinoisState.edu">Illinois State University</a>, 
-                <a href="http://maps.illinoisstate.edu">Normal, IL</a>
-
-                <div>
-                    <p class="footer_college">
-                        <a href="http://my.illinoisstate.edu">My.IllinoisState.edu</a><br/>
-                        <a href="http://supportcenter.illinoisstate.edu">Technology Support Center</a><br/></p>
-                </div>
-            </p></div>
-        <div id="footersocial" align="center">
-            <p>Stay Connected</p>
-            <a id="footersocial-one" title="" href="http://IllinoisState.edu/Facebook" target="_blank"><span class="visuallyhidden">Facebook</span></a>
-            <a id="footersocial-two" title="" href="http://IllinoisState.edu/Twitter" target="_blank"><span class="visuallyhidden">Twitter</span></a> 
-            <a id="footersocial-three" title="" href="http://IllinoisState.edu/LinkedIN" target="_blank"><span class="visuallyhidden">LinkedIn</span></a> 
-
+<!--footer start-->
+        <div style ="position:fixed; bottom:0; width:100%;height:120px; background:black">   
+            <p class="footer_college" align="left">
+                <a href="http://my.illinoisstate.edu">My.IllinoisState.edu</a>
+                <center> <h:outputText  escape="false" value="&#169; 2015" /></center> </p>
+            <div class="half" id="footeruniversity">
+                <p align="center">
+                    <span id="ou_de"></span> <span id="c_year"></span> <a href="http://IllinoisState.edu">Illinois State University</a>, 
+                    <a href="http://maps.illinoisstate.edu">Normal, IL</a> <br />
+                    <span id="ou_de"></span> <span id="c_year"></span> <a href="aboutUs.xhtml">About Us</a> </p> 
+                <!--references= Illinois state university-->
+            </div>
         </div>
+<!--footer end-->
+
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
         <script src="resources/js/bootstrap.min.js"></script>
-        <br />
     </h:body>
 </html>

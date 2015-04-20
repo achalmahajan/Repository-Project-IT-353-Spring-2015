@@ -6,10 +6,11 @@
     <h:head>
         <title>Repository Sign Up</title>
         <!-- Bootstrap -->
+        <link href="resources/css/bootstrap.css" rel="stylesheet"></link>
         <link href="resources/css/bootstrap.min.css" rel="stylesheet"></link>
     </h:head>
     <h:body>
-         <body background="resources/images/ISU.gif" class="img-responsive" />
+        <body background="resources/images/ISU.gif" class="img-responsive" />
 
         <!-- navigational Bar -->
         <div class="navbar-wrapper">
@@ -33,15 +34,15 @@
                                 <ul class="nav navbar-nav">
                                     <li  class="active"><h:commandLink class="active" action="signUp?faces-redirect=true" value="Sign Up" /></li>
                                     <li><h:commandLink action="login?faces-redirect=true" value="Login" /></li>
-                                     <li> 
+                                    <li> 
                                         <div class="navbar-form navbar-left" >
                                             <div class="input-group">
 
                                                 <h:inputText class="form-control"  value="#{searchController.searchKeyword}" />
                                                 <div class="input-group-btn">
-                                                    
-                                                   
-                                                    <h:commandLink type="button" class="btn btn-primary" action="demoSearch.xhtml">
+
+
+                                                    <h:commandLink type="button" class="btn btn-primary" action="demoSearch1.xhtml">
                                                         Search
                                                     </h:commandLink>
                                                 </div> 
@@ -58,38 +59,105 @@
             </div>
         </div>
         <br /><br />
+        <div> 
+            <div class="container" style ="height:750px; width:1020px; padding:0;">
+                <h:form styleClass="form-horizontal">
+                    <h3 class="col-sm-offset-4 col-sm-6">Sign Up</h3> <br/> <br/>
+                    <div class="form-group">
+                        <h:outputLabel value="First Name" styleClass="control-label col-sm-4"/>
+                        <div class="col-sm-3">
+                            <h:inputText style="height:30px" value="#{signUpController.theModel.firstName}" styleClass="form-control"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <h:outputLabel value="Last Name" styleClass="control-label col-sm-4"/>
+                        <div class="col-sm-3">
+                            <h:inputText style="height:30px" value="#{signUpController.theModel.lastName}" styleClass="form-control"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <h:outputLabel value="User Name" styleClass="control-label col-sm-4"/>
+                        <div class="col-sm-3">
+                            <h:inputText style="height:30px" value="#{signUpController.theModel.userName}" styleClass="form-control"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <h:outputLabel value="Password" styleClass="control-label col-sm-4"/>
+                        <div class="col-sm-3">
+                            <h:inputSecret style="height:30px" value="#{signUpController.theModel.password}" styleClass="form-control"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <h:outputLabel value="Confirm Password" styleClass="control-label col-sm-4"/>
+                        <div class="col-sm-3">
+                            <h:inputSecret style="height:30px" value="#{signUpController.theModel.confirmPassword}" styleClass="form-control"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <h:outputLabel value="Email" styleClass="control-label col-sm-4"/>
+                        <div class="col-sm-3">
+                            <h:inputText style="height:30px" value="#{signUpController.theModel.email}" styleClass="form-control"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <h:outputLabel value="Security Question" styleClass="control-label col-sm-4"/>
+                        <div class="col-sm-3">
+                            <h:inputText style="height:30px" value="#{signUpController.theModel.securityQuestion}" styleClass="form-control"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <h:outputLabel value="Security Answer" styleClass="control-label col-sm-4"/>
+                        <div class="col-sm-3">
+                            <h:inputText style="height:30px" value="#{signUpController.theModel.securityAnswer}" styleClass="form-control"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <h:outputLabel value="Type" styleClass="control-label col-sm-4"/>
+                        <div class="col-sm-3">
+                            <h:selectOneMenu style="height:30px" value="#{signUpController.theModel.securityAnswer}" styleClass="form-control">
+                                <f:selectItem id="student" itemLabel="Student" itemValue="student" />
+                                <f:selectItem id="professor" itemLabel="Professor" itemValue="professor" />
+                            </h:selectOneMenu>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <h:outputLabel value="Reason for an Account" styleClass="control-label col-sm-4"/>
+                        <div class="col-sm-3">
+                            <h:inputTextarea id="accountReason"  rows="2" cols="40"  value="#{signUpController.theModel.accountReason}" /> 
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-4 col-sm-3">
+                            <h:outputText value="#{signUpController.errorResponse}" style="color:#ff0000"/>
+                        </div>
+                        <!--  </div>
+                          <div class="form-group">-->
+                        <div class="col-sm-offset-4 col-sm-3">
+                            <h:commandButton style="height:40px" action="#{signUpController.signUp()}" value="Sign Up" styleClass="btn btn-lg btn-primary btn-block"/>
+                        </div>
+                    </div>
+                </h:form>
+            </div>
+        </div>
 
-        <h1>Sign Up</h1>
-
-        <h:form enctype="multipart/form-data">
-            First Name: <h:inputText id="fName" required="true" requiredMessage="The first name field is empty" value="#{signUpController.theModel.firstName}" /> <br />
-            <h:message for="fName" errorStyle="color:red; display:block"/> <br />
-
-            Last Name: <h:inputText id="lName" required="true" requiredMessage="The field is empty" value="#{signUpController.theModel.lastName}" /> <br /><br/>
-
-            UserName: <h:inputText id="uName" required="true" requiredMessage="The field is empty" value="#{signUpController.theModel.userName}" /><br /><br/>
-
-            Password:  <h:inputSecret id="password" required="true" requiredMessage="The field is empty" value="#{signUpController.theModel.password}" /><br /><br/>
-
-            Confirm Password:   <h:inputSecret id="confirmPassword"  required="true" requiredMessage="The field is empty" value="#{signUpController.theModel.confirmPassword}" /><br /> <br/>
-
-            Email:   <h:inputText id="email" required="true" requiredMessage="The field is empty"  value="#{signUpController.theModel.email}" /><br /> <br/>
-
-            Security Question: <h:inputText id="sQuestion" required="true" requiredMessage="The field is empty" value="#{signUpController.theModel.securityQuestion}" /><br /><br/>
-
-            Security Answer:  <h:inputText id="sAnswer" required="true" requiredMessage="The field is empty" value="#{signUpController.theModel.securityAnswer}" /><br /> <br/>
 
 
-            Type: <h:selectOneMenu id="loginType" value="#{signUpController.theModel.loginType}">
-                <f:selectItem id="student" itemLabel="Student" itemValue="student" />
-                <f:selectItem id="professor" itemLabel="Professor" itemValue="professor" />
-            </h:selectOneMenu><br/><br/>
+        <!--footer start-->
+        <div style ="position:relative; bottom:0; width:100%;height:120px; background:black">   
+            <p class="footer_college" align="left">
+                <a href="http://my.illinoisstate.edu">My.IllinoisState.edu</a>
+                <center> <h:outputText  escape="false" value="&#169; 2015" /></center> </p>
+            <div class="half" id="footeruniversity">
+                <p align="center">
+                    <span id="ou_de"></span> <span id="c_year"></span> <a href="http://IllinoisState.edu">Illinois State University</a>, 
+                    <a href="http://maps.illinoisstate.edu">Normal, IL</a> <br />
+                    <span id="ou_de"></span> <span id="c_year"></span> <a href="aboutUs.xhtml">About Us</a> </p> 
+                <!--references= Illinois state university-->
+            </div>
+        </div>
+        <!--footer end-->
 
-            Reason for an Account: <h:inputTextarea id="accountReason" required="true" rows="6" requiredMessage="the field is empty" value="#{signUpController.theModel.accountReason}" /> <br/> <br/>
 
-            <h:commandButton id="submitID" value="Submit" action="#{signUpController.signUp()}"/>
-
-        </h:form>
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->

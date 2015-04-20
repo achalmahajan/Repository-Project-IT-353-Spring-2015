@@ -12,10 +12,11 @@ and open the template in the editor.
         <title> </title>
 
         <!-- Bootstrap -->
+        <link href="resources/css/bootstrap.css" rel="stylesheet"></link>
         <link href="resources/css/bootstrap.min.css" rel="stylesheet"></link>
     </h:head>
     <h:body>
-
+        <body background="resources/images/ISU.gif" class="img-responsive" />
         <!-- navigational Bar -->
         <div class="container-fluid">
             <div class="container">
@@ -51,7 +52,7 @@ and open the template in the editor.
 
                                                 <h:inputText class="form-control"  value="#{searchController.searchKeyword}" />
                                                 <div class="input-group-btn">
-                                                   
+
                                                     <h:commandLink type="button" class="btn btn-primary" action="demoSearch.xhtml">
                                                         Search
                                                     </h:commandLink>
@@ -72,28 +73,71 @@ and open the template in the editor.
             </div>
         </div>
         <!-- Navigational bar close-->
+        <br/> <br/><br/>
 
-        <h:form>
-            <div class="jumbotron">
-                <div class="container">
-                    <h2>Hi
-                        <h:outputText value="#{loginBean.firstName}," /></h2>
-                    UserName: <h:inputText id="uName" value="#{studentProfileBean.userName}" readonly="true"/><br /><br/>
-                    Gender: 
-                    <h:selectOneRadio id="gender" value="#{studentProfileController.theModel.gender}" > 
-                        <f:selectItem itemValue="male" itemLabel="Male"  />
-                        <f:selectItem itemValue="female" itemLabel="Female" />
-                    </h:selectOneRadio> <br/>
-                    Contact Number : <h:inputText id="contactNumber" value="#{studentProfileController.theModel.contactNumber}" /><br/><br/>
-                    Course ID :  <h:inputText id="course" value="#{studentProfileController.theModel.course}" /> <br/><br/>
-                    Major: <h:inputText id="major" value="#{studentProfileController.theModel.major}" /> <br/><br/>
-                    Semester Completed: <h:inputText id="semester" value="#{studentProfileController.theModel.semesterCompleted}" /><br/><br/>
-
-                    <h:commandButton id="updateProfile" value="Update" action="#{studentProfileController.updateProfile()}" />
-
-                    <h:outputText value="#{studentProfileController.result}" style="color:#ff0000"/><br/>
-                </div>
+        <div class="container">
+            <h2> Hello 
+                <h:outputText value="#{loginBean.firstName}," />
+            </h2>  
+        </div>
+        <div> 
+            <div class="container" style ="height:750px; width:1020px; padding:0;">
+                <h:form styleClass="form-horizontal">
+                    <h3 class="col-sm-offset-4 col-sm-6">Update</h3> <br/> <br/>
+                    <div class="form-group">
+                        <h:outputLabel value="UserName:" styleClass="control-label col-sm-4"/>
+                        <div class="col-sm-3">
+                            <h:inputText style="height:30px" value="#{studentProfileBean.userName}" readonly="true" styleClass="form-control"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <h:outputLabel value="Gender:" styleClass="control-label col-sm-4"/>
+                        <div class="col-sm-3">
+                            <h:selectOneMenu style="height:30px" value="#{studentProfileController.theModel.gender}" styleClass="form-control">
+                                <f:selectItem id="male" itemLabel="Male" itemValue="male" />
+                                <f:selectItem id="female" itemLabel="Female" itemValue="female" />
+                            </h:selectOneMenu>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <h:outputLabel value="Contact Number :" styleClass="control-label col-sm-4"/>
+                        <div class="col-sm-3">
+                            <h:inputText id="contactNumber" style="height:30px" value="#{studentProfileController.theModel.contactNumber}" styleClass="form-control"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <h:outputLabel value="Course ID : " styleClass="control-label col-sm-4"/>
+                        <div class="col-sm-3">
+                            <h:inputText style="height:30px" id="course" value="#{studentProfileController.theModel.course}" styleClass="form-control"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <h:outputLabel value="Major:" styleClass="control-label col-sm-4"/>
+                        <div class="col-sm-3">
+                            <h:inputText style="height:30px" id="major" value="#{studentProfileController.theModel.major}" styleClass="form-control"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <h:outputLabel value="Semester Completed:" styleClass="control-label col-sm-4"/>
+                        <div class="col-sm-3">
+                            <h:inputText style="height:30px" id="semester" value="#{studentProfileController.theModel.semesterCompleted}" styleClass="form-control"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-4 col-sm-3">
+                            <h:commandButton style="height:40px" id="updateProfile" value="Update" action="#{studentProfileController.updateProfile()}" styleClass="btn btn-lg btn-primary btn-block"/>
+                        </div>
+                        <div class="col-sm-offset-4 col-sm-3">
+                            <h:outputText value="#{studentProfileController.result}" style="color:#ff0000"/>
+                        </div>
+                    </div>
+                </h:form>
             </div>
-        </h:form>
+        </div>
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="resources/js/bootstrap.min.js"></script>  
+
     </h:body>
 </html>

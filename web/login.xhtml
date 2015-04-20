@@ -10,6 +10,7 @@ and open the template in the editor.
     <h:head>
         <title>Repository Login</title>
         <!-- Bootstrap -->
+       <link href="resources/css/bootstrap.css" rel="stylesheet"></link>
         <link href="resources/css/bootstrap.min.css" rel="stylesheet"></link>
     </h:head>
     <h:body>
@@ -44,7 +45,7 @@ and open the template in the editor.
                                                 <h:inputText class="form-control"  value="#{searchController.searchKeyword}" />
                                                 <div class="input-group-btn">
                                                    
-                                                    <h:commandLink type="button" class="btn btn-primary" action="demoSearch.xhtml">
+                                                    <h:commandLink type="button" class="btn btn-primary" action="demoSearch1.xhtml">
                                                         Search
                                                     </h:commandLink>
                                                 </div> 
@@ -62,7 +63,7 @@ and open the template in the editor.
         </div>
         <!-- Navigational bar close-->
 <br /><br /><br /><br />
- <h1>Login</h1>
+<!-- <h1>Login</h1>
         <h:form>
             User Name: <h:inputText id="userName" value="#{loginController.theModel.userName}" required="true">
             </h:inputText>
@@ -73,20 +74,61 @@ and open the template in the editor.
             </h:inputSecret>
             <br/> 
 
-            <!--            <p><a href="forgotPassword">Forgot Password</a></p>-->
+                        <p><a href="forgotPassword">Forgot Password</a></p>
 
             <h:outputText value="#{loginController.response}" style="color:#ff0000"/><br/>
 
             <br/><br/>
-            <h:commandButton id="submitID" value="Submit" action="#{loginController.validateUser()}"/> <br /> <br />
+            <h:commandButton id="submitID" value="Submit" action=""/> <br /> <br />
 
-        </h:form>
+        </h:form>-->
 
-        <h:form>
+
+
+<div> 
+    <div class ="container" style ="min-height: 500px;">
+        <h:form styleClass="form-horizontal">
+            <h3 class="col-sm-offset-4 col-sm-6">Login</h3>
+            <div class="form-group">
+                <br/> <br/><h:outputLabel value="User Name" styleClass="control-label col-sm-4"/>
+                <div class="col-sm-3">
+                    <h:inputText style="height:30px" value="#{loginController.theModel.userName}" styleClass="form-control"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <h:outputLabel value="Password" styleClass="control-label col-sm-4"/>
+                <div class="col-sm-3">
+                    <h:inputSecret style="height:30px" value="#{loginController.theModel.password}" styleClass="form-control"/>
+                </div>
+            </div>
+            <div class="col-sm-offset-2 col-sm-6">
+                <div class="form-group">
+                    <h:outputText value="#{loginController.response}" style="color:#ff0000" styleClass="control-label col-sm-8" />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-4 col-sm-3">
+                    <h:commandButton style="height:40px" action="#{loginController.validateUser()}" value="Login" styleClass="btn btn-lg btn-primary btn-block"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-4 col-sm-4">
+                    <h:commandButton action="forgotPassword"  value="Forgot Password" styleClass="btn btn-danger"  style="text-decoration:none;color:white; font-weight: bold;" />
+                </div>
+            </div>
+            <br/><br/>
+        </h:form> 
+
+    </div>
+
+</div>
+
+<!--        <h:form>
             <div>
                 <p> <h:commandLink  action="forgotPassword" value="Forgot Password" /> </p>
             </div>
-        </h:form>
+        </h:form>-->
+
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->

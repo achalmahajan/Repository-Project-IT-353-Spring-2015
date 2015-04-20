@@ -7,9 +7,11 @@
         <title></title>
 
         <!-- Bootstrap -->
+         <link href="resources/css/bootstrap.css" rel="stylesheet"></link>
         <link href="resources/css/bootstrap.min.css" rel="stylesheet"></link>
     </h:head>
     <h:body>
+        <body background="resources/images/ISU.gif" class="img-responsive" />
         <!-- navigational Bar -->
         <div class="container-fluid">
             <div class="container">
@@ -53,7 +55,7 @@
                                 </ul>
 
                                 <ul class="nav navbar-right">
-                                    <li><h:commandLink action="#{loginController.logout()}" value="Log Out" /></li>
+                                    <li><h:commandLink action="#{loginController.logout()}" value="Log Out" style="color: whitesmoke;" /></li>
                                 </ul>
                             </div>
                         </h:form>
@@ -64,79 +66,14 @@
         </div>
         <!-- Navigational bar close-->
 
-
+        <br/>
         <div class="jumbotron">
             <div class="container">
                 <h2> Hello 
                     <h:outputText value="#{loginBean.firstName}," />
                 </h2>  
             </div>
-        </div>
-
-<!--        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="myModalLabel">Related Projects</h4>
-                    </div>
-                    <div class="modal-body">
-
-                        
-                        <h:form>
-            <h:dataTable value="#{searchController.getTheSearchBean()}" var="c"
-                         styleClass="order-table"
-                         headerClass="order-table-header"
-                         rowClasses="order-table-odd-row,order-table-even-row"
-                         class ="table table-bordered"
-                         >
-
-                <h:column>
-                    <f:facet name="header">
-                        User name
-                    </f:facet> 
-                    #{c.userName}
-                </h:column>
-
-                <h:column>
-                    <f:facet name="header">
-                        Project Name
-                    </f:facet>
-                    #{c.projectName}
-                </h:column>
-
-                <h:column>
-                    <f:facet name="header">
-                        Keywords
-                    </f:facet>
-                    #{c.keywords}
-                </h:column>
-
-                <h:column>
-                    <f:facet name="header">
-                        Project Abstract
-                    </f:facet>
-                    #{c.projectAbstract}
-                </h:column>
-
-            </h:dataTable>
-</h:form>
-                        
-                        
-                        
-                    </div>
-                    <div class="modal-footer">
-
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <h:commandButton class="btn btn-primary" value="send" />
-
-                    </div>
-                </div>
-            </div>
-        </div>      
--->
-
-
+        </div>                        
 
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>

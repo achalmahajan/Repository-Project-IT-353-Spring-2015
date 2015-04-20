@@ -23,6 +23,7 @@ public class SignUpController implements Serializable {
 
     private SignUpModel theModel;
     private String result = "";
+    private String errorResponse = "";
   
 
     /**
@@ -53,31 +54,45 @@ public class SignUpController implements Serializable {
         this.result = result;
     }
 
+    public String getErrorResponse() {
+        return errorResponse;
+    }
+
+    public void setErrorResponse(String errorResponse) {
+        this.errorResponse = errorResponse;
+    }
+    
+    
+
     public SignUpController() {
         theModel = new SignUpModel();
     }
 
     public String signUp() throws IOException {
         SignDAOImpl aProfileDAOImpl = new SignDAOImpl();
+        errorResponse = theModel.validate();
+        if(!errorResponse.isEmpty()){
+            return "signUp.xhtml?faces-redirect=true";
+        }
         int a = aProfileDAOImpl.createProfile(theModel);
         if (a == 1) {
 
             SignUpMailApp.mailapp(theModel);
-            result = "Thank you for signing with us!!! <br>";
-            result += "Your First name is : " + theModel.getFirstName() + "<br>";
-            result += "Your Last name is : " + theModel.getLastName() + "<br>";
-            result += "Your Email-id is : " + theModel.getEmail() + "<br>";
-            result += "Your User-id is : " + theModel.getUserName() + "<br>";
-            result += "Your Security question is : " + theModel.getSecurityQuestion() + "<br>";
-            result += "Your Security answer is : " + theModel.getSecurityAnswer() + "<br>";
-            result += "Your reason for account is :" + theModel.getAccountReason() + "<br> <br>";
-            result += "Your account is been send for approval";
+            result = " Thank you for signing with us!!! <br>";
+            result += "Your First name is : <b> " + theModel.getFirstName() + "</b><br>";
+            result += "Your Last name is : <b> " + theModel.getLastName() + "</b><br>";
+            result += "Your Email-id is :<b> " + theModel.getEmail() + "</b><br>";
+            result += "Your User-id is : <b> " + theModel.getUserName() + "</b><br>";
+            result += "Your Security question is : <b> " + theModel.getSecurityQuestion() + "</b><br>";
+            result += "Your Security answer is : <b> " + theModel.getSecurityAnswer() + "</b><br>";
+            result += "Your reason for account is :<b> " + theModel.getAccountReason() + "</b><br> <br>";
+            result += "<b> Your account is been send for approval </b> ";
 
             //send email confirmation with an embedded images that should be unique.
             return "signUpResponse.xhtml?faces-redirect=true";
             // show resonse some more interative.
         } else {
-            result = "Sorry try again";
+            errorResponse = "Sorry try again";
             return "signUp.xhtml?faces-redirect=true";
         }
     }

@@ -1,0 +1,114 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>About Us</title>
+
+        <!-- Bootstrap -->
+        <link href="resources/css/bootstrap.css" rel="stylesheet"></link>
+        <link href="resources/css/bootstrap.min.css" rel="stylesheet"></link>
+        <link href="resources/css/style1.css" rel="stylesheet"></link>
+        
+    </h:head>
+    <h:body>
+        <body background="resources/images/ISU.gif" class="img-responsive" />
+
+        <!-- navigational Bar -->
+        <div class="container-fluid">
+            <div class="container">
+
+                <nav class="navbar navbar-inverse navbar-fixed-top">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapse" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <h:form>
+                                <h:commandLink class="navbar-brand" action="index?faces-redirect=true"> IT 353 Repository Project</h:commandLink>
+                            </h:form>
+                        </div>
+                        <h:form>
+                            <div id="navbar" class="navbar-collapse collapse">
+                                <ul class="nav navbar-nav">
+                                    <li> <h:commandLink  action="signUp?faces-redirect=true" value="Sign Up" /></li>
+                                    <li><h:commandLink action="login?faces-redirect=true" value="Login" /></li>
+                                    <li> 
+                                        <div class="navbar-form navbar-left" >
+                                            <div class="input-group">
+
+                                                <h:inputText class="form-control"  value="#{searchController.searchKeyword}" />
+                                                <div class="input-group-btn">
+
+                                                    <h:commandLink type="button" class="btn btn-primary" action="demoSearch1.xhtml">
+                                                        Search
+                                                    </h:commandLink>
+                                                </div> 
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </h:form>
+                    </div>
+                </nav>
+
+            </div>
+        </div>
+        <!-- Navigational bar close-->
+
+        
+        <h:form>
+    <p:growl id="msgs" showDetail="true" />
+ 
+    <p:fieldset legend="Basic" style="margin-bottom:20px">
+        <h:panelGrid columns="2" cellpadding="5">
+            <p:graphicImage url="https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/090/1d0/2c0f7df.jpg" />
+            <h:outputText
+                value="The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.
+                His beloved son Michael has just come home from the war, but does not intend to become part of his father's business. T
+                hrough Michael's life the nature of the family business becomes clear. The business of the family is just like the head of the family, kind and benevolent to those who give respect,
+                but given to ruthless violence whenever anything stands against the good of the family." />
+        </h:panelGrid>
+        
+        <h:panelGrid columns="2" cellpadding="5">
+            <p:graphicImage url="https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/090/1d0/2c0f7df.jpg" />
+            <h:outputText
+                value="The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.
+                His beloved son Michael has just come home from the war, but does not intend to become part of his father's business. T
+                hrough Michael's life the nature of the family business becomes clear. The business of the family is just like the head of the family, kind and benevolent to those who give respect,
+                but given to ruthless violence whenever anything stands against the good of the family." />
+        </h:panelGrid>
+    </p:fieldset>
+        
+        </h:form>
+        
+        
+        
+
+<!--footer start-->
+        <div style ="position:relative; bottom:0; width:100%;height:120px; background:black">   
+            <p class="footer_college" align="left">
+                <a href="http://my.illinoisstate.edu">My.IllinoisState.edu</a>
+                <center> <h:outputText  escape="false" value="&#169; 2015" /></center> </p>
+            <div class="half" id="footeruniversity">
+                <p align="center">
+                    <span id="ou_de"></span> <span id="c_year"></span> <a href="http://IllinoisState.edu">Illinois State University</a>, 
+                    <a href="http://maps.illinoisstate.edu">Normal, IL</a> <br />
+                    <span id="ou_de"></span> <span id="c_year"></span> <a href="aboutUs.xhtml">About Us</a> </p> 
+                <!--references= Illinois state university-->
+            </div>
+        </div>
+
+<!--footer end-->
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="resources/js/bootstrap.min.js"></script>
+    </h:body>
+</html>
+
