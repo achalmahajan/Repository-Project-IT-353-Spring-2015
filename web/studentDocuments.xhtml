@@ -108,8 +108,7 @@
                             <p:fileUpload style="height:30px" value="#{studentProfileController.theModel.initialProposal}" mode="simple" styleClass="form-control" />
                         </div>
                     </div>
-
-
+                    
                     <div class="form-group">
                         <h:outputLabel value="Upload Final Project Proposal:" styleClass="control-label col-sm-4"/>
                         <div class="col-sm-3">
@@ -130,9 +129,11 @@
                             <h:commandButton style="height:40px" id="submitID" value="Upload" action="#{studentProfileController.documentUpload()}" styleClass="btn btn-lg btn-primary btn-block"/>
                         </div>
                     </div>
+                    <div class="col-sm-offset-4 col-sm-3">
                     <p:commandButton value="Download Project Proposal" ajax="false" icon="ui-icon-arrowthick-1-s">
                         <p:fileDownload value="#{studentProfileController.download()}" />
                     </p:commandButton>
+                    </div>
                 </h:form>
             </div>
         </div>

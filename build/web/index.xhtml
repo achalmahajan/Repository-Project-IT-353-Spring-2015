@@ -62,57 +62,18 @@
             </div>
         </div>
         <!-- Navigational bar close-->
-
-        <div class="jumbotron">
+        <br/><br/><br/>
+        <!--<div class="jumbotron">-->
             <div class="container">
                 <h2>Illinois State University - Thesis/Project Repository</h2>   
             </div>
-        </div>
-
-        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true" onmouseover="">
-            <div class="panel panel-default">
-                <div class="panel-heading" role="tab" id="headingOne">
-                    <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                            Instructor
-                        </a>
-                    </h4>
-                </div>
-                <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-                    <div class="panel-body">
-
-                    </div>
-                </div>
-            </div>
-            <div class="panel panel-default">
-                <div class="panel-heading" role="tab" id="headingTwo">
-                    <h4 class="panel-title">
-                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                            ISU Calendar
-                        </a>
-                    </h4>
-                </div>
-                <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-                    <div class="panel-body">
-
-                    </div>
-                </div>
-            </div>
-            <div class="panel panel-default">
-                <div class="panel-heading" role="tab" id="headingThree">
-                    <h4 class="panel-title">
-                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                            Support
-                        </a>
-                    </h4>
-                </div>
-                <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-                    <div class="panel-body">
-
-                    </div>
-                </div>
-            </div>
-        </div>
+        <br/><br/><br/>
+        <!--</div>-->
+        <button tabindex="0" class="btn btn-lg btn-primary" role="button" data-toggle="popover" data-trigger="focus" style="height:40px; width:180px" title="Instructor" data-content="Dr. Billy Lim. ISU Professor">Instructor </button> <br/><br/>
+        <button tabindex="0" class="btn btn-lg btn-primary" role="button" data-toggle="popover" data-trigger="focus" style="height:40px; width:180px" title="ISU Calendar" data-content="And here's some amazing content. It's very engaging. Right?">ISU Calendar </button><br/><br/>
+        <button tabindex="0" class="btn btn-lg btn-primary" role="button" data-toggle="popover" data-trigger="focus" style="height:40px; width:180px" title="Support" data-content="And here's some amazing content. It's very engaging. Right?">Support </button><br/><br/>
+        <button tabindex="0" class="btn btn-lg btn-primary" role="button" data-toggle="popover" data-trigger="focus" style="height:40px; width:180px" title="To Be Determined" data-content="And here's some amazing content. It's very engaging. Right?">To Be Determined </button><br/><br/>
+        <button tabindex="0" class="btn btn-lg btn-primary" role="button" data-toggle="popover" data-trigger="focus" style="height:40px; width:180px" title="To Be Determined" data-content="And here's some amazing content. It's very engaging. Right?">To Be Determined </button><br/><br/>
         <br /><br /><br /><br /><br/><br/><br/>
 
 <!--footer start-->
@@ -133,6 +94,13 @@
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="resources/js/bootstrap.js" type="text/javascript"></script>
         <script src="resources/js/bootstrap.min.js"></script>
+        
+        
+        <script>
+          $('[data-toggle="popover"]').popover();
+            
+        </script>
     </h:body>
 </html>
