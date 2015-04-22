@@ -24,6 +24,7 @@ public class SignUpController implements Serializable {
     private SignUpModel theModel;
     private String result = "";
     private String errorResponse = "";
+    private String userCheck = "";
   
 
     /**
@@ -95,6 +96,17 @@ public class SignUpController implements Serializable {
             errorResponse = "Sorry try again";
             return "signUp.xhtml?faces-redirect=true";
         }
+    }
+    
+    public String checkUser(){
+        SignDAOImpl aProfileDAOImpl = new SignDAOImpl();
+        boolean value = aProfileDAOImpl.checkUser(theModel.getUserName());
+        if(value = true){
+            result = "Not available";
+        }else{
+            result = "available";
+        }
+        return result;
     }
 
 }

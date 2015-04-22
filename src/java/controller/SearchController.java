@@ -48,14 +48,4 @@ public class SearchController implements Serializable {
         this.theSearchBean = theSearchBean;
     }
 
-//    public void getSearch() {
-//        List theCollection = getTheSearchBean();
-//        for (int i = 0; i < theCollection.size(); i++) {
-//
-//            theCollection.get(i);
-////           System.out.println("chala");
-//            //  System.out.println(returnedStudentCollection.get(i).toString());
-//        }
-//    }
-
 }

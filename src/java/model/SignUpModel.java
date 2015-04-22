@@ -5,6 +5,7 @@
  */
 package model;
 
+import dao.SignDAOImpl;
 import java.io.Serializable;
 
 /**
@@ -25,6 +26,21 @@ public class SignUpModel implements Serializable {
     private String securityAnswer = "";
     private String loginType = "";
     private String accountReason = "";
+//    private String userIdResult;
+
+//    public String getUserIdResult() {
+//       SignDAOImpl update=new SignDAOImpl();
+//       Boolean result=update.validateUserId(getUserName());
+//       if(result==false)
+//       userIdResult="User Id available";
+//       if(result==true)
+//       userIdResult="User Id already taken, please enter a new one";
+//       return userIdResult;
+//    }
+//
+//    public void setUserIdResult(String userIdResult) {
+//        this.userIdResult = userIdResult;
+//    }
 
     public String getAccountReason() {
         return accountReason;

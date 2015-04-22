@@ -6,11 +6,12 @@
 package dao;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import model.SignUpModel;
 
 /**
@@ -55,4 +56,86 @@ public class SignDAOImpl {
 
         return rowCount;
     }
+    
+   public boolean checkUser(String inputUserId) {
+       Connection DBConn = null;
+       try {
+           Class.forName("org.apache.derby.jdbc.ClientDriver");
+       } catch (ClassNotFoundException e) {
+           System.err.println(e.getMessage());
+           System.exit(0);
+       }
+       boolean valid = false;
+       try {
+           DBHelper.loadDriver("org.apache.derby.jdbc.ClientDriver");
+           String myDB = "jdbc:derby://localhost:1527/RepositoryDB";
+           DBConn = DBHelper.connect2DB(myDB, "itkstu", "student");
+
+           String query = "SELECT userID FROM Signup WHERE userid = '" + inputUserId + "'";
+
+           Statement stmt = DBConn.createStatement();
+           ResultSet rs = stmt.executeQuery(query);
+           
+           while (rs.next()) {
+               String dbUserId = rs.getString("userid");
+               valid = inputUserId.equalsIgnoreCase(dbUserId);
+           }
+           rs.close();
+           stmt.close();
+       } catch (Exception e) {
+           System.err.println("ERROR: Problems with SQL select");
+           e.printStackTrace();
+       }
+       try {
+           DBConn.close();
+       } catch (SQLException e) {
+           System.err.println(e.getMessage());
+       }
+       return valid;
+   }
+   
+   
+   
+   
+   /*
+   public boolean validateUserId(String userId) {
+       Connection DBConn = null;
+       try {
+           Class.forName("org.apache.derby.jdbc.ClientDriver");
+       } catch (ClassNotFoundException e) {
+           System.err.println(e.getMessage());
+           System.exit(0);
+       }
+       boolean valid = false;
+       try {
+           DBHelper.loadDriver("org.apache.derby.jdbc.ClientDriver");
+           String myDB = "jdbc:derby://localhost:1527/RepositoryDB";
+           DBConn = DBHelper.connect2DB(myDB, "itkstu", "student");
+
+           String query = "SELECT * FROM RepositoryDB.Signup ";
+           query += "WHERE userid = '" + userId+ "'";
+
+           Statement stmt = DBConn.createStatement();
+           ResultSet rs = stmt.executeQuery(query);
+           String userid = userId;
+           
+           while (rs.next()) {
+               String dbUserId = rs.getString("userid");
+               String dbPassword = rs.getString("password");
+               valid = userid.equalsIgnoreCase(dbUserId) ;
+           }
+           rs.close();
+           stmt.close();
+       } catch (Exception e) {
+           System.err.println("ERROR: Problems with SQL select");
+           e.printStackTrace();
+       }
+       try {
+           DBConn.close();
+       } catch (SQLException e) {
+           System.err.println(e.getMessage());
+       }
+       return valid;
+   }
+   */
 }
