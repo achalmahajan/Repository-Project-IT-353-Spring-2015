@@ -27,8 +27,6 @@ import org.primefaces.model.DefaultStreamedContent;
 @SessionScoped
 public class StudentProfileController implements Serializable {
 
-//    @ManagedProperty(value="#{params.transferName}")
-//    private String transferName;
     private String nameTransfered;
 
     private StudentProfileBean theModel;
@@ -74,13 +72,6 @@ public class StudentProfileController implements Serializable {
         this.profiles = profiles;
     }
 
-//    public String getTransferName() {
-//        return transferName;
-//    }
-//
-//    public void setTransferName(String transferName) {
-//        this.transferName = transferName;
-//    }
     public String getNameTransfered() {
         return nameTransfered;
     }
@@ -122,9 +113,16 @@ public class StudentProfileController implements Serializable {
         theModel.setName(name);
         StudentProfileDAOImpl theStudentProfileDAO = new StudentProfileDAOImpl();
         DefaultStreamedContent a = theStudentProfileDAO.downloadFileFromDB(theModel);
-
         return theModel.getDownloadFileProposal();
-
+    }
+    
+    public DefaultStreamedContent downloadFinal() {
+        LoginController aLoginC = new LoginController();
+        String name = aLoginC.getTheModel().getUserName();
+        theModel.setName(name);
+        StudentProfileDAOImpl theStudentProfileDAO = new StudentProfileDAOImpl();
+        DefaultStreamedContent a = theStudentProfileDAO.downloadFinalFromDB(theModel);
+        return theModel.getDownloadFinalProposal();
     }
 
     public void checkStudentProfile() throws IOException {

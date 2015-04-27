@@ -143,6 +143,42 @@ public class StudentProfileDAOImpl {
         return resumeDownload;
     }
     
+    public DefaultStreamedContent downloadFinalFromDB(StudentProfileBean aModel) {
+        DefaultStreamedContent finalDownload = null;
+        try {
+            Class.forName("org.apache.derby.jdbc.ClientDriver");
+        } catch (ClassNotFoundException e) {
+            System.err.println(e.getMessage());
+            System.exit(0);
+        }
+        
+        int rowCount = 0;
+        try {
+            String myDB = "jdbc:derby://localhost:1527/RepositoryDB";
+            try (Connection DBConn = DriverManager.getConnection(myDB, "itkstu", "student")) {
+                String retrieveString;
+                retrieveString = "SELECT * FROM StudentProject where userId = '" + aModel.getName() + "'";
+                Statement stmt = DBConn.createStatement();
+                byte[] finalProposal;
+//                DefaultStreamedContent resumeDownload = null;
+                ResultSet rs = stmt.executeQuery(retrieveString);
+                
+                while (rs.next()) {
+                    String finalProposalName = rs.getString("FinalProposalName");
+                    finalProposal = rs.getBytes("FINALPROPOSAL");
+//                    aModel.setDownloadFile(this.binaryToDefaultStreamedContent(resume, "pdf/docx"));
+                    finalDownload = new DefaultStreamedContent(new ByteArrayInputStream(finalProposal), "application/docx", finalProposalName);
+                    aModel.setDownloadFinalProposal(finalDownload);
+                }
+                rs.close();
+                stmt.close();
+            }
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+        return finalDownload;
+    }
+    
     public StudentProfileBean fetchStudentProfile(String userName) {
         StudentProfileBean theModel = new StudentProfileBean();
         try {

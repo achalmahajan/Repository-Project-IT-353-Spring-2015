@@ -106,7 +106,7 @@
                             <p:fileUpload style="height:30px" value="#{studentProfileController.theModel.initialProposal}" mode="simple" styleClass="form-control" />
                         </div>
                     </div>
-                    
+
                     <div class="form-group">
                         <h:outputLabel value="Upload Final Project Proposal:" styleClass="control-label col-sm-4"/>
                         <div class="col-sm-3">
@@ -128,25 +128,28 @@
                         </div>
                     </div>
                     <div class="col-sm-offset-4 col-sm-3">
-                    <p:commandButton value="Download Project Proposal" ajax="false" icon="ui-icon-arrowthick-1-s">
-                        <p:fileDownload value="#{studentProfileController.download()}" />
-                    </p:commandButton>
+                        <p:commandButton value="Download Initial Proposal" ajax="false">
+                            <p:fileDownload value="#{studentProfileController.download()}" />
+                        </p:commandButton> <br/> <br/>
+                        <p:commandButton value="Download Final Proposal" ajax="false">
+                            <p:fileDownload value="#{studentProfileController.downloadFinal()}" />
+                        </p:commandButton>
                     </div>
                 </h:form>
             </div>
         </div>
-        
-        
-      
-<!--footer start--> 
-         <div style ="position:fixed; bottom:0; width:100%;height:45px; background:black">   
+
+
+
+        <!--footer start--> 
+        <div style ="position:fixed; bottom:0; width:100%;height:45px; background:black">   
             <p align="center"> <h:outputLabel value="&#169; 2015 &#160;"> 
                     <a href="http://IllinoisState.edu">Illinois State University</a>, 
                     <a href="http://maps.illinoisstate.edu">Normal, IL</a> <br />
                     <a href="aboutUs.xhtml?faces-redirect=true">About Us</a> </h:outputLabel>
             </p> 
         </div>
-<!--footer end--> 
+        <!--footer end--> 
 
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
@@ -154,4 +157,3 @@
         <script src="resources/js/bootstrap.min.js"></script>  
     </h:body>
 </html>
-
