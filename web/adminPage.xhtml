@@ -9,7 +9,7 @@
         <link href="resources/css/bootstrap.min.css" rel="stylesheet"></link>
     </h:head>
     <h:body>
-         <body background="resources/images/ISU.gif" class="img-responsive" />
+        <body background="resources/images/ISU.gif" class="img-responsive" />
         <!-- navigational Bar -->
         <div class="navbar-wrapper">
             <div class="container">
@@ -24,19 +24,20 @@
                                 <span class="icon-bar"></span>
                             </button>
                             <h:form>
-                                <h:commandLink class="navbar-brand" action="index" > IT 353 Repository Project</h:commandLink>
+                                <img src="resources/images/cutmypic.jpg" alt="chidiya" width="50px" height="50px" align="left" class="img-rounded" style="margin-right: 20px" />
+                                <h:commandLink class="navbar-brand" action="index?faces-redirect=true" >Repository Project</h:commandLink>
                             </h:form>
                         </div>
                         <h:form>
                             <f:event listener="#{loginController.checkIfLoggedIn}" type="preRenderView" />
-                            
+
                             <div id="navbar" class="navbar-collapse collapse">
                                 <ul class="nav navbar-nav">
                                     <li> <h:commandLink  action="approveStudents?faces-redirect=true" value="Students Need Approval" /></li>
-<!--                                    <li> <h:commandLink action="login" value="Login" /></li>-->
+                                    <li><h:commandLink action="#{loginController.logout()}" value="Log Out" /></li>
                                 </ul>
                                 <ul class="nav navbar-right">
-                                     <li><h:commandLink action="#{loginController.logout()}" value="Log Out" /></li>
+
                                 </ul>
                             </div>
                         </h:form>
@@ -47,25 +48,25 @@
         </div>
         <!-- Navigational bar close-->
 
-       
-         <div class="jumbotron">
+
+        <div class="jumbotron">
             <div class="container">
                 <h2> Hello Admin,</h2>   
             </div>
         </div>
-        
-        
-        
-<!--footer start--> 
-         <div style ="position:fixed; bottom:0; width:100%;height:45px; background:black">   
+
+
+
+        <!--footer start--> 
+        <div style ="position:fixed; bottom:0; width:100%;height:45px; background:black">   
             <p align="center"> <h:outputLabel value="&#169; 2015 &#160;"> 
                     <a href="http://IllinoisState.edu">Illinois State University</a>, 
                     <a href="http://maps.illinoisstate.edu">Normal, IL</a> <br />
-                    <a href="aboutUs.xhtml">About Us</a> </h:outputLabel>
+                    <a href="aboutUs.xhtml?faces-redirect=true">About Us</a> </h:outputLabel>
             </p> 
         </div>
-<!--footer end--> 
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <!--footer end--> 
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
         <script src="resources/js/bootstrap.js"></script>

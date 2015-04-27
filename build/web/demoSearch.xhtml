@@ -10,10 +10,11 @@
         <!-- Bootstrap -->
         <link href="resources/css/bootstrap.css" rel="stylesheet"></link>
         <link href="resources/css/bootstrap.min.css" rel="stylesheet"></link>
+
     </h:head>
     <h:body>
         <body background="resources/images/ISU.gif" class="img-responsive" />
-<!-- navigational Bar -->
+        <!-- navigational Bar -->
         <div class="container-fluid">
             <div class="container">
 
@@ -27,7 +28,8 @@
                                 <span class="icon-bar"></span>
                             </button>
                             <h:form>
-                                <h:commandLink class="navbar-brand" action="studentHome" > IT 353 Repository Project</h:commandLink>
+                                <img src="resources/images/cutmypic.jpg" alt="chidiya" width="50px" height="50px" align="left" class="img-rounded" style="margin-right: 20px" />
+                                <h:commandLink class="navbar-brand" action="studentHome?faces-redirect=true" >Repository Project</h:commandLink>
                             </h:form>
                         </div>
                         <h:form>
@@ -44,7 +46,7 @@
 
                                                 <h:inputText class="form-control"  value="#{searchController.searchKeyword}" />
                                                 <div class="input-group-btn">
-                                                   
+
                                                     <h:commandLink type="button" class="btn btn-primary" action="demoSearch.xhtml?faces-redirect=true">
                                                         Search
                                                     </h:commandLink>
@@ -52,10 +54,6 @@
                                             </div>
                                         </div>
                                     </li>
-
-                                </ul>
-
-                                <ul class="nav navbar-right">
                                     <li><h:commandLink action="#{loginController.logout()}" value="Log Out" /></li>
                                 </ul>
                             </div>
@@ -66,21 +64,23 @@
             </div>
         </div>
         <!-- Navigational bar close-->
-<br /><br /><br /><br />
-        
-        
+        <br /><br /><br /><br />
+
+
         <h:form class="jumbotron">
             <h:dataTable value="#{searchController.getTheSearchBean()}" var="c"
                          styleClass="order-table"
                          headerClass="order-table-header"
                          rowClasses="order-table-odd-row,order-table-even-row"
-                         class ="table table-bordered">
+                         class ="table table-striped table-bordered table-hover">
 
                 <h:column>
                     <f:facet name="header">
                         User name
                     </f:facet> 
-                     #{c.userName}
+                    <h:link id="transferName" outcome="viewStudentProfile.xhtml" value="#{c.userName}" includeViewParams="true">
+                        <f:param  name="transferName" value="#{c.userName}" /> 
+                    </h:link>
                 </h:column>
 
                 <h:column>
@@ -103,13 +103,6 @@
                     </f:facet>
                     #{c.projectAbstract}
                 </h:column>
-                <h:column>
-                    <f:facet name="header">
-                        Action
-                    </f:facet>
-                    <a href="viewStudentProfile.xhtml" class="btn btn-primary"> View </a>
-                </h:column>
-
             </h:dataTable>
 
         </h:form>
@@ -118,6 +111,8 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
         <script src="resources/js/bootstrap.js"></script>
+
+
     </h:body>
 </html>
 

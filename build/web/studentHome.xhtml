@@ -7,7 +7,7 @@
         <title></title>
 
         <!-- Bootstrap -->
-         <link href="resources/css/bootstrap.css" rel="stylesheet"></link>
+        <link href="resources/css/bootstrap.css" rel="stylesheet"></link>
         <link href="resources/css/bootstrap.min.css" rel="stylesheet"></link>
     </h:head>
     <h:body>
@@ -26,11 +26,14 @@
                                 <span class="icon-bar"></span>
                             </button>
                             <h:form>
-                                <h:commandLink class="navbar-brand" action="studentHome" > IT 353 Repository Project</h:commandLink>
+                                <img src="resources/images/cutmypic.jpg" alt="chidiya" width="50px" height="50px" align="left" class="img-rounded" style="margin-right: 20px" />
+                                <h:commandLink class="navbar-brand" action="studentHome?faces-redirect=true" >Repository Project</h:commandLink>
                             </h:form>
                         </div>
                         <h:form>
+                            <f:metadata>
                             <f:event listener="#{loginController.checkIfLoggedIn}" type="preRenderView" />
+                            </f:metadata>
 
                             <div id="navbar" class="navbar-collapse collapse">
                                 <ul class="nav navbar-nav">
@@ -43,7 +46,7 @@
 
                                                 <h:inputText class="form-control"  value="#{searchController.searchKeyword}" />
                                                 <div class="input-group-btn">
-                                                   
+
                                                     <h:commandLink type="button" class="btn btn-primary" action="demoSearch.xhtml">
                                                         Search
                                                     </h:commandLink>
@@ -51,10 +54,6 @@
                                             </div>
                                         </div>
                                     </li>
-
-                                </ul>
-
-                                <ul class="nav navbar-nav">
                                     <li><h:commandLink action="#{loginController.logout()}" value="Log Out"/></li>
                                 </ul>
                             </div>
@@ -68,25 +67,25 @@
 
         <br/><br/><br/><br/>
         <!--<div class="jumbotron">-->
-            <div class="container">
-                <h2> Hello 
-                    <h:outputText value="#{loginBean.firstName}," />
-                </h2>  
-            </div>
-        
-        
-        
-        
-<!--footer start--> 
-         <div style ="position:fixed; bottom:0; width:100%;height:45px; background:black">   
+        <div class="container">
+            <h2> Hello 
+                <h:outputText value="#{loginBean.firstName}," />
+            </h2>  
+        </div>
+
+
+
+
+        <!--footer start--> 
+        <div style ="position:fixed; bottom:0; width:100%;height:45px; background:black">   
             <p align="center"> <h:outputLabel value="&#169; 2015 &#160;"> 
                     <a href="http://IllinoisState.edu">Illinois State University</a>, 
                     <a href="http://maps.illinoisstate.edu">Normal, IL</a> <br />
-                    <a href="aboutUs.xhtml">About Us</a> </h:outputLabel>
+                    <a href="aboutUs.xhtml?faces-redirect=true">About Us</a> </h:outputLabel>
             </p> 
         </div>
-<!--footer end--> 
-                
+        <!--footer end--> 
+
 
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>

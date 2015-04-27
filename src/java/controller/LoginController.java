@@ -72,6 +72,8 @@ public class LoginController implements Serializable {
         String result = aProfileDAOImpl.validateLogin(theModel);
 
         if ("student".equals(result)) {
+            
+            
             loggedIn = true;
             return "studentHome.xhtml?faces-redirect=true";
         } else if ("professor".equals(result)) {
@@ -91,8 +93,7 @@ public class LoginController implements Serializable {
         loggedIn = false;
         theModel.setUserName("");
         theModel.setPassword("");
-        return "index.xhtml";
+        return "index.xhtml?faces-redirect=true";
 
     }
-
 }

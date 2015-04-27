@@ -1,12 +1,126 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>Facelet Title</title>
+        <!-- Bootstrap -->
+        <link href="resources/css/bootstrap.css" rel="stylesheet"></link>
+        <link href="resources/css/bootstrap.min.css" rel="stylesheet"></link>
+
+        
     </h:head>
     <h:body>
-        Hello from Facelets
+                <f:metadata>
+<!--                    <f:viewParam name="transferName" value="#{studentProfileController.transferName}" required="true"/>-->
+            <f:event listener="#{loginController.checkIfLoggedIn}" type="preRenderView" />
+<!--            <f:event type="preRenderView" listener="#{studentProfileController.init}" />-->
+        </f:metadata>
+        <body background="resources/images/ISU.gif" class="img-responsive" />
+         
+        <!-- navigational Bar -->
+        <div class="container-fluid">
+            <div class="container">
+
+                <nav class="navbar navbar-inverse navbar-fixed-top">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapse" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <h:form>
+                                <img src="resources/images/cutmypic.jpg" alt="chidiya" width="50px" height="50px" align="left" class="img-rounded" style="margin-right: 20px" />
+                                <h:commandLink class="navbar-brand" action="studentHome?faces-redirect=true" >Repository Project</h:commandLink>
+                            </h:form>
+                        </div>
+                        <h:form>
+                            
+                            <div id="navbar" class="navbar-collapse collapse">
+                                <ul class="nav navbar-nav">
+                                    <li> <h:commandLink  action="studentProfile?faces-redirect= true" value="Profile" /></li>
+                                    <li class="active"> <h:commandLink  action="studentDocuments?faces-redirect= true" value="Documents" /></li>
+                                    <li> <h:commandLink action="studentSettings?faces-redirect= true" value="Settings" /></li>
+
+                                    <li> 
+                                        <div class="navbar-form navbar-left" >
+                                            <div class="input-group">
+
+                                                <h:inputText class="form-control"  value="#{searchController.searchKeyword}" />
+                                                <div class="input-group-btn">
+
+                                                    <h:commandLink type="button" class="btn btn-primary" action="demoSearch.xhtml">
+                                                        Search
+                                                    </h:commandLink>
+                                                </div> 
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li><h:commandLink action="#{loginController.logout()}" value="Log Out" /></li>
+                                </ul>
+                            </div>
+                        </h:form>
+                    </div>
+                </nav>
+
+            </div>
+        </div>
+        <!-- Navigational bar close-->
+        <br/><br/><br/><br/>
+        <div> 
+            <div class="container" style ="height:750px; width:1020px; padding:0;">
+                <h:form enctype="multipart/form-data" styleClass="form-horizontal">
+                    
+                chala:    <h:inputText value="#{param.transferName}" />
+                    
+                    <h3 class="col-sm-offset-4 col-sm-6">Update</h3> <br/> <br/>
+                    <div class="form-group">
+                        <h:outputLabel value="UserName:" styleClass="control-label col-sm-4"/>
+                        <div class="col-sm-3">
+                            <h:inputText style="height:30px" id="uName" value="#{studentProfileController.selectedProfile.userName}" readonly="true" styleClass="form-control"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <h:outputLabel value="Project/Thesis Name: " styleClass="control-label col-sm-4"/>
+                        <div class="col-sm-3">
+                            <h:inputText style="height:30px" id="projectName" readonly="true" value="#{studentProfileController.selectedProfile.projectName}" styleClass="form-control"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <h:outputLabel value="Keywords: " styleClass="control-label col-sm-4"/>
+                        <div class="col-sm-3">
+                            <h:inputText style="height:30px" id="keywords" readonly="true" value="#{studentProfileController.selectedProfile.keywords}" styleClass="form-control"/>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <h:outputLabel value="Abstract:" styleClass="control-label col-sm-4"/>
+                        <div class="col-sm-3">
+                            <h:inputText style="height:30px" readonly="true" id="abstract" value="#{studentProfileController.selectedProfile.projectAbstract}"  styleClass="form-control"/>
+                        </div>
+                    </div>
+
+                    
+                    <!--documents to download-->
+                    
+                    
+                    
+                    <div class="form-group">
+                        <h:outputLabel value=" Live Link for Project:" styleClass="control-label col-sm-4"/>
+                        <div class="col-sm-3">
+                            <h:inputText style="height:30px" readonly="true" id="liveLink" value="#{studentProfileController.selectedProfile.liveLink}"  styleClass="form-control"/>
+                        </div>
+                    </div>
+                </h:form>
+            </div>
+        </div>
     </h:body>
 </html>
 
