@@ -5,21 +5,22 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
     <h:head>
-        <title>Facelet Title</title>
+        <title> View Project/ Thesis</title>
         <!-- Bootstrap -->
         <link href="resources/css/bootstrap.css" rel="stylesheet"></link>
         <link href="resources/css/bootstrap.min.css" rel="stylesheet"></link>
 
-        
+
     </h:head>
     <h:body>
-                <f:metadata>
-<!--                    <f:viewParam name="transferName" value="#{studentProfileController.transferName}" required="true"/>-->
+        <f:metadata>
             <f:event listener="#{loginController.checkIfLoggedIn}" type="preRenderView" />
-<!--            <f:event type="preRenderView" listener="#{studentProfileController.init}" />-->
+        </f:metadata>
+        <f:metadata>
+            <f:event listener="#{studentProfileController.viewStudentDocument()}" type="preRenderView" />
         </f:metadata>
         <body background="resources/images/ISU.gif" class="img-responsive" />
-         
+
         <!-- navigational Bar -->
         <div class="container-fluid">
             <div class="container">
@@ -39,7 +40,7 @@
                             </h:form>
                         </div>
                         <h:form>
-                            
+
                             <div id="navbar" class="navbar-collapse collapse">
                                 <ul class="nav navbar-nav">
                                     <li> <h:commandLink  action="studentProfile?faces-redirect= true" value="Profile" /></li>
@@ -75,9 +76,7 @@
             <div class="container" style ="height:750px; width:1020px; padding:0;">
                 <h:form enctype="multipart/form-data" styleClass="form-horizontal">
                     
-                chala:    <h:inputText value="#{param.transferName}" />
-                    
-                    <h3 class="col-sm-offset-4 col-sm-6">Update</h3> <br/> <br/>
+                    <h3 class="col-sm-offset-4 col-sm-6">Project/Thesis Details</h3> <br/> <br/>
                     <div class="form-group">
                         <h:outputLabel value="UserName:" styleClass="control-label col-sm-4"/>
                         <div class="col-sm-3">
@@ -107,17 +106,17 @@
                         </div>
                     </div>
 
-                    
-                    <!--documents to download-->
-                    
-                    
-                    
                     <div class="form-group">
                         <h:outputLabel value=" Live Link for Project:" styleClass="control-label col-sm-4"/>
                         <div class="col-sm-3">
                             <h:inputText style="height:30px" readonly="true" id="liveLink" value="#{studentProfileController.selectedProfile.liveLink}"  styleClass="form-control"/>
                         </div>
                     </div>
+                    
+
+                    <!--documents to download-->
+
+
                 </h:form>
             </div>
         </div>

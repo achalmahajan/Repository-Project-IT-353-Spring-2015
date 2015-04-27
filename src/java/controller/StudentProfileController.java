@@ -10,7 +10,9 @@ import java.io.IOException;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 import java.util.List;
+import java.util.Map;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
 import model.StudentProfileBean;
@@ -26,13 +28,13 @@ import org.primefaces.model.DefaultStreamedContent;
 public class StudentProfileController implements Serializable {
 
 //    @ManagedProperty(value="#{params.transferName}")
-    private String transferName;
+//    private String transferName;
+    private String nameTransfered;
 
     private StudentProfileBean theModel;
     private List<ViewStudentDocuments> profiles;
     private ViewStudentDocuments selectedProfile;
     private String result = "";
-    
 
     public StudentProfileController() {
         theModel = new StudentProfileBean();
@@ -72,14 +74,20 @@ public class StudentProfileController implements Serializable {
         this.profiles = profiles;
     }
 
-    public String getTransferName() {
-        return transferName;
+//    public String getTransferName() {
+//        return transferName;
+//    }
+//
+//    public void setTransferName(String transferName) {
+//        this.transferName = transferName;
+//    }
+    public String getNameTransfered() {
+        return nameTransfered;
     }
 
-    public void setTransferName(String transferName) {
-        this.transferName = transferName;
+    public void setNameTransfered(String nameTransfered) {
+        this.nameTransfered = nameTransfered;
     }
-    
 
     public String documentUpload() throws IOException {
         //theModel = new StudentProfileBean();
@@ -135,27 +143,17 @@ public class StudentProfileController implements Serializable {
         this.theModel = theStudentProfileDAO.fetchStudentDocuments(name);
     }
 
-    public void viewStudentDocument(String name) {
-//        String name = getUrl();
-        for (int i = 0; i < getProfiles().size(); i++) {
-            if (name.equals(getProfiles().get(i).getUserName())) {
-                selectedProfile = getProfiles().get(i);
+    public void viewStudentDocument() {
+        FacesContext externalContext = FacesContext.getCurrentInstance();
+        if (!externalContext.isPostback()) {
+            FacesContext fc = FacesContext.getCurrentInstance();
+            Map<String, String> params = fc.getExternalContext().getRequestParameterMap();
+            nameTransfered = params.get("transferName");
+            for (int i = 0; i < getProfiles().size(); i++) {
+                if (nameTransfered.equals(getProfiles().get(i).getUserName())) {
+                    selectedProfile = getProfiles().get(i);
+                }
             }
         }
-    }
-
-    public String open(String name) {
-           return "viewStudentProfile.xhtml?userName = " + name;
-       }
-    
-    public String getUrl() {
-        HttpServletRequest req = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
-        String url = req.getRequestURL().toString();
-        return url;
-    }
-    
-    public void init() {
-        // Do here your thing with those parameters.
-        System.out.println(transferName);
     }
 }
