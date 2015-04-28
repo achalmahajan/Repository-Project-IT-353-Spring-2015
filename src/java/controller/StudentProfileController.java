@@ -115,7 +115,7 @@ public class StudentProfileController implements Serializable {
         DefaultStreamedContent a = theStudentProfileDAO.downloadFileFromDB(theModel);
         return theModel.getDownloadFileProposal();
     }
-    
+
     public DefaultStreamedContent downloadFinal() {
         LoginController aLoginC = new LoginController();
         String name = aLoginC.getTheModel().getUserName();
@@ -143,15 +143,37 @@ public class StudentProfileController implements Serializable {
 
     public void viewStudentDocument() {
         FacesContext externalContext = FacesContext.getCurrentInstance();
-        if (!externalContext.isPostback()) {
-            FacesContext fc = FacesContext.getCurrentInstance();
-            Map<String, String> params = fc.getExternalContext().getRequestParameterMap();
-            nameTransfered = params.get("transferName");
-            for (int i = 0; i < getProfiles().size(); i++) {
-                if (nameTransfered.equals(getProfiles().get(i).getUserName())) {
-                    selectedProfile = getProfiles().get(i);
-                }
+        FacesContext fc = FacesContext.getCurrentInstance();
+        Map<String, String> params = fc.getExternalContext().getRequestParameterMap();
+        nameTransfered = params.get("transferName");
+        for (int i = 0; i < getProfiles().size(); i++) {
+            if (nameTransfered.equals(getProfiles().get(i).getUserName())) {
+                selectedProfile = getProfiles().get(i);
             }
         }
+    }
+
+    public DefaultStreamedContent testDownload() {
+        FacesContext externalContext = FacesContext.getCurrentInstance();
+        FacesContext fc = FacesContext.getCurrentInstance();
+        Map<String, String> params = fc.getExternalContext().getRequestParameterMap();
+        nameTransfered = params.get("transferName");
+        selectedProfile = new ViewStudentDocuments();
+        selectedProfile.setUserName(nameTransfered);
+        StudentProfileDAOImpl theStudentProfileDAO = new StudentProfileDAOImpl();
+        DefaultStreamedContent a = theStudentProfileDAO.testDownloadFromDB(selectedProfile);
+        return selectedProfile.getDownloadFileProposal();
+    }
+    
+     public DefaultStreamedContent finalDownload() {
+        FacesContext externalContext = FacesContext.getCurrentInstance();
+        FacesContext fc = FacesContext.getCurrentInstance();
+        Map<String, String> params = fc.getExternalContext().getRequestParameterMap();
+        nameTransfered = params.get("transferName");
+        selectedProfile = new ViewStudentDocuments();
+        selectedProfile.setUserName(nameTransfered);
+        StudentProfileDAOImpl theStudentProfileDAO = new StudentProfileDAOImpl();
+        DefaultStreamedContent a = theStudentProfileDAO.testFinalDownloadFromDB(selectedProfile);
+        return selectedProfile.getDownloadFinalProposal();
     }
 }

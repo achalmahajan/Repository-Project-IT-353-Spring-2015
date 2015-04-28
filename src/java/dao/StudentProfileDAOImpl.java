@@ -25,7 +25,7 @@ import org.primefaces.model.DefaultStreamedContent;
  * @author it3530123
  */
 public class StudentProfileDAOImpl {
-    
+
     public int uploadDocument(StudentProfileBean aModel) throws IOException {
         try {
             Class.forName("org.apache.derby.jdbc.ClientDriver");
@@ -33,7 +33,7 @@ public class StudentProfileDAOImpl {
             System.err.println(e.getMessage());
             System.exit(0);
         }
-        
+
         int rowCount = 0;
         try {
             String myDB = "jdbc:derby://localhost:1527/RepositoryDB";
@@ -43,7 +43,7 @@ public class StudentProfileDAOImpl {
                 //Statement stmt = DBConn.createStatement();
                 //need to change the name of the table to signupapproval
                 insertString = "update studentproject set projectName =?, keywords =?, abstract=?, projectProposal=?, proposalName=?, finalProposal=?, finalProposalName=?, liveLink=?, viewNumber=?, downloadedNumber=?, details=? WHERE userId = '" + aModel.getName() + "'";
-                
+
                 InputStream fileInStream = aModel.getInitialProposal().getInputstream();
                 InputStream fileInStream1 = aModel.getFinalProposal().getInputstream();
                 PreparedStatement stmt = DBConn.prepareStatement(insertString);
@@ -60,7 +60,7 @@ public class StudentProfileDAOImpl {
                 stmt.setString(9, "0");
                 stmt.setString(10, "0");
                 stmt.setString(11, combinedString);
-                
+
                 rowCount = stmt.executeUpdate();
             }
         } catch (SQLException e) {
@@ -70,16 +70,16 @@ public class StudentProfileDAOImpl {
         // if insert is successful, rowCount will be set to 1 (1 row inserted successfully). Else, insert failed.
         return rowCount;
     }
-    
+
     public int uploadProfile(StudentProfileBean aModel) throws IOException {
-        
+
         try {
             Class.forName("org.apache.derby.jdbc.ClientDriver");
         } catch (ClassNotFoundException e) {
             System.err.println(e.getMessage());
             System.exit(0);
         }
-        
+
         int rowCount = 0;
         try {
             String myDB = "jdbc:derby://localhost:1527/RepositoryDB";
@@ -87,15 +87,15 @@ public class StudentProfileDAOImpl {
                 String insertString;
                 insertString = "UPDATE student SET gender=? , phone=?, course=?, major=?, semcompleted=? WHERE userId = '" + aModel.getName() + "'";
                 PreparedStatement stmt = DBConn.prepareStatement(insertString);
-                
+
                 stmt.setString(1, aModel.getGender());
                 stmt.setString(2, aModel.getContactNumber());
                 stmt.setString(3, aModel.getCourse());
                 stmt.setString(4, aModel.getMajor());
                 stmt.setString(5, aModel.getSemesterCompleted());
-                
+
                 rowCount = stmt.executeUpdate();
-                
+
             }
         } catch (SQLException e) {
             System.err.println(e.getMessage());
@@ -104,7 +104,7 @@ public class StudentProfileDAOImpl {
         // if insert is successful, rowCount will be set to 1 (1 row inserted successfully). Else, insert failed.
         return rowCount;
     }
-    
+
     public DefaultStreamedContent downloadFileFromDB(StudentProfileBean aModel) {
         DefaultStreamedContent resumeDownload = null;
         try {
@@ -113,7 +113,7 @@ public class StudentProfileDAOImpl {
             System.err.println(e.getMessage());
             System.exit(0);
         }
-        
+
         int rowCount = 0;
         try {
             String myDB = "jdbc:derby://localhost:1527/RepositoryDB";
@@ -124,7 +124,7 @@ public class StudentProfileDAOImpl {
                 byte[] resume;
 //                DefaultStreamedContent resumeDownload = null;
                 ResultSet rs = stmt.executeQuery(retrieveString);
-                
+
                 while (rs.next()) {
                     String proposalName = rs.getString("ProposalName");
                     resume = rs.getBytes("PROJECTPROPOSAL");
@@ -142,7 +142,7 @@ public class StudentProfileDAOImpl {
         // if insert is successful, rowCount will be set to 1 (1 row inserted successfully). Else, insert failed.
         return resumeDownload;
     }
-    
+
     public DefaultStreamedContent downloadFinalFromDB(StudentProfileBean aModel) {
         DefaultStreamedContent finalDownload = null;
         try {
@@ -151,7 +151,7 @@ public class StudentProfileDAOImpl {
             System.err.println(e.getMessage());
             System.exit(0);
         }
-        
+
         int rowCount = 0;
         try {
             String myDB = "jdbc:derby://localhost:1527/RepositoryDB";
@@ -162,7 +162,7 @@ public class StudentProfileDAOImpl {
                 byte[] finalProposal;
 //                DefaultStreamedContent resumeDownload = null;
                 ResultSet rs = stmt.executeQuery(retrieveString);
-                
+
                 while (rs.next()) {
                     String finalProposalName = rs.getString("FinalProposalName");
                     finalProposal = rs.getBytes("FINALPROPOSAL");
@@ -178,7 +178,7 @@ public class StudentProfileDAOImpl {
         }
         return finalDownload;
     }
-    
+
     public StudentProfileBean fetchStudentProfile(String userName) {
         StudentProfileBean theModel = new StudentProfileBean();
         try {
@@ -187,7 +187,7 @@ public class StudentProfileDAOImpl {
             System.err.println(e.getMessage());
             System.exit(0);
         }
-        
+
         int rowCount = 0;
         try {
             String myDB = "jdbc:derby://localhost:1527/RepositoryDB";
@@ -196,7 +196,7 @@ public class StudentProfileDAOImpl {
                 fetchString = "SELECT * FROM Student where userId = '" + userName + "'";
                 Statement stmt = DBConn.createStatement();
                 ResultSet rs = stmt.executeQuery(fetchString);
-                
+
                 while (rs.next()) {
                     theModel.setGender(rs.getString("gender"));
                     theModel.setContactNumber(rs.getString("phone"));
@@ -211,9 +211,9 @@ public class StudentProfileDAOImpl {
             System.err.println(e.getMessage());
         }
         return theModel;
-        
+
     }
-    
+
     public StudentProfileBean fetchStudentDocuments(String userName) {
         StudentProfileBean theModel = new StudentProfileBean();
         try {
@@ -222,7 +222,7 @@ public class StudentProfileDAOImpl {
             System.err.println(e.getMessage());
             System.exit(0);
         }
-        
+
         int rowCount = 0;
         try {
             String myDB = "jdbc:derby://localhost:1527/RepositoryDB";
@@ -233,7 +233,7 @@ public class StudentProfileDAOImpl {
                 ResultSet rs = stmt.executeQuery(fetchDocumentStr);
                 byte[] initialProposal;
                 byte[] finalProposal;
-                
+
                 while (rs.next()) {
                     theModel.setProjectName(rs.getString("projectName"));
                     theModel.setKeywords(rs.getString("keywords"));
@@ -256,20 +256,20 @@ public class StudentProfileDAOImpl {
         }
         return theModel;
     }
-    
+
     public DefaultStreamedContent binaryToDefaultStreamedContent(byte[] binaryFile, String ext) {
         DefaultStreamedContent fileToShow = new DefaultStreamedContent(new ByteArrayInputStream(binaryFile), ext);
         return fileToShow;
     }
-    
+
     public ArrayList findAllStudentDocuments() {
-        
+
         String sqlStr = "SELECT * FROM StudentProject";
         ArrayList aStudentsCollection = selectStudentsFromDB(sqlStr);
         return aStudentsCollection;
-        
+
     }
-    
+
     private ArrayList selectStudentsFromDB(String sqlStr) {
         ArrayList aStudentProjectCollection = new ArrayList();
         try {
@@ -278,7 +278,7 @@ public class StudentProfileDAOImpl {
             System.err.println(e.getMessage());
             System.exit(0);
         }
-        
+
         try {
             String myDB = "jdbc:derby://localhost:1527/RepositoryDB";            // connection string, jdbc: protocol for db; derby is the db;
             Connection DBConn = DriverManager.getConnection(myDB, "itkstu", "student");
@@ -286,7 +286,7 @@ public class StudentProfileDAOImpl {
             ResultSet rs = stmt.executeQuery(sqlStr);
             byte[] initialProposal;
             byte[] finalProposal;
-            
+
             while (rs.next()) {
                 ViewStudentDocuments viewModel = new ViewStudentDocuments();
                 viewModel.setUserName(rs.getString("userId"));
@@ -311,5 +311,79 @@ public class StudentProfileDAOImpl {
         }
         return aStudentProjectCollection;
     }
+
+    public DefaultStreamedContent testDownloadFromDB(ViewStudentDocuments aModel) {
+        DefaultStreamedContent resumeDownload = null;
+        try {
+            Class.forName("org.apache.derby.jdbc.ClientDriver");
+        } catch (ClassNotFoundException e) {
+            System.err.println(e.getMessage());
+            System.exit(0);
+        }
+
+        int rowCount = 0;
+        try {
+            String myDB = "jdbc:derby://localhost:1527/RepositoryDB";
+            try (Connection DBConn = DriverManager.getConnection(myDB, "itkstu", "student")) {
+                String retrieveString;
+                retrieveString = "SELECT * FROM StudentProject where userId = '" + aModel.getUserName() + "'";
+                Statement stmt = DBConn.createStatement();
+                byte[] resume;
+//                DefaultStreamedContent resumeDownload = null;
+                ResultSet rs = stmt.executeQuery(retrieveString);
+
+                while (rs.next()) {
+                    String proposalName = rs.getString("ProposalName");
+                    resume = rs.getBytes("PROJECTPROPOSAL");
+//                    aModel.setDownloadFile(this.binaryToDefaultStreamedContent(resume, "pdf/docx"));
+                    resumeDownload = new DefaultStreamedContent(new ByteArrayInputStream(resume), "application/docx", proposalName);
+                    aModel.setDownloadFileProposal(resumeDownload);
+                }
+                rs.close();
+                stmt.close();
+            }
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+        return resumeDownload;
+    }
     
+    
+    public DefaultStreamedContent testFinalDownloadFromDB(ViewStudentDocuments aModel) {
+        DefaultStreamedContent finalDownload = null;
+        try {
+            Class.forName("org.apache.derby.jdbc.ClientDriver");
+        } catch (ClassNotFoundException e) {
+            System.err.println(e.getMessage());
+            System.exit(0);
+        }
+
+        int rowCount = 0;
+        try {
+            String myDB = "jdbc:derby://localhost:1527/RepositoryDB";
+            try (Connection DBConn = DriverManager.getConnection(myDB, "itkstu", "student")) {
+                String retrieveString;
+                retrieveString = "SELECT * FROM StudentProject where userId = '" + aModel.getUserName() + "'";
+                Statement stmt = DBConn.createStatement();
+                byte[] finalProposal;
+//                DefaultStreamedContent resumeDownload = null;
+                ResultSet rs = stmt.executeQuery(retrieveString);
+
+                while (rs.next()) {
+                    String finalProposalName = rs.getString("FinalProposalName");
+                    finalProposal = rs.getBytes("FINALPROPOSAL");
+//                    aModel.setDownloadFile(this.binaryToDefaultStreamedContent(resume, "pdf/docx"));
+                    finalDownload = new DefaultStreamedContent(new ByteArrayInputStream(finalProposal), "application/docx", finalProposalName);
+                    aModel.setDownloadFinalProposal(finalDownload);
+                }
+                rs.close();
+                stmt.close();
+            }
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+        return finalDownload;
+        
+    }
+
 }

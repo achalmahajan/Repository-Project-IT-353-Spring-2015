@@ -112,11 +112,17 @@
                             <h:inputText style="height:30px" readonly="true" id="liveLink" value="#{studentProfileController.selectedProfile.liveLink}"  styleClass="form-control"/>
                         </div>
                     </div>
-                    
+                    <div class="col-sm-offset-4 col-sm-3">
+                    <p:commandButton value="Download Initial Proposal" ajax="false">
+                         <f:param  name="transferName" value="#{studentProfileController.selectedProfile.userName}" />
+                        <p:fileDownload value="#{studentProfileController.testDownload()}" />
+                        </p:commandButton> <br/> <br/>
 
-                    <!--documents to download-->
-
-
+                    <p:commandButton value="Download Final Proposal" ajax="false">
+                         <f:param  name="transferName" value="#{studentProfileController.selectedProfile.userName}" />
+                        <p:fileDownload value="#{studentProfileController.finalDownload()}" />
+                        </p:commandButton>
+                    </div>
                 </h:form>
             </div>
         </div>
