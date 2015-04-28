@@ -20,7 +20,7 @@ public class ViewStudentDocuments {
     DefaultStreamedContent downloadFileProposal;
     DefaultStreamedContent downloadFinalProposal;
     private String liveLink;
-
+    
     public String getUserName() {
         return userName;
     }
@@ -76,7 +76,5 @@ public class ViewStudentDocuments {
     public void setLiveLink(String liveLink) {
         this.liveLink = liveLink;
     }
-    
-    
     
 }

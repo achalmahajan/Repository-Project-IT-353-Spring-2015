@@ -12,9 +12,7 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
 import javax.faces.context.FacesContext;
-import javax.servlet.http.HttpServletRequest;
 import model.StudentProfileBean;
 import model.ViewStudentDocuments;
 import org.primefaces.model.DefaultStreamedContent;
@@ -149,6 +147,8 @@ public class StudentProfileController implements Serializable {
         for (int i = 0; i < getProfiles().size(); i++) {
             if (nameTransfered.equals(getProfiles().get(i).getUserName())) {
                 selectedProfile = getProfiles().get(i);
+                StudentProfileDAOImpl theStudentProfileDAO = new StudentProfileDAOImpl();
+                theStudentProfileDAO.viewIncrement(selectedProfile);
             }
         }
     }

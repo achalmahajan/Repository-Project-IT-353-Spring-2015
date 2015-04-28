@@ -26,6 +26,9 @@ import org.primefaces.model.DefaultStreamedContent;
  */
 public class StudentProfileDAOImpl {
 
+    String downloadNumber;
+    String viewNumber;
+
     public int uploadDocument(StudentProfileBean aModel) throws IOException {
         try {
             Class.forName("org.apache.derby.jdbc.ClientDriver");
@@ -329,16 +332,21 @@ public class StudentProfileDAOImpl {
                 retrieveString = "SELECT * FROM StudentProject where userId = '" + aModel.getUserName() + "'";
                 Statement stmt = DBConn.createStatement();
                 byte[] resume;
-//                DefaultStreamedContent resumeDownload = null;
                 ResultSet rs = stmt.executeQuery(retrieveString);
 
                 while (rs.next()) {
                     String proposalName = rs.getString("ProposalName");
                     resume = rs.getBytes("PROJECTPROPOSAL");
-//                    aModel.setDownloadFile(this.binaryToDefaultStreamedContent(resume, "pdf/docx"));
                     resumeDownload = new DefaultStreamedContent(new ByteArrayInputStream(resume), "application/docx", proposalName);
                     aModel.setDownloadFileProposal(resumeDownload);
+                    String actualDownloadNumber = rs.getString("DownloadedNumber");
+                    int i = Integer.parseInt(actualDownloadNumber);
+                    downloadNumber = String.valueOf(i + 1);
                 }
+
+                String uploadNumber = "Update StudentProject set DownloadedNumber = '" + downloadNumber + "' where userId = '" + aModel.getUserName() + "'";
+                int i = stmt.executeUpdate(uploadNumber);
+
                 rs.close();
                 stmt.close();
             }
@@ -347,8 +355,7 @@ public class StudentProfileDAOImpl {
         }
         return resumeDownload;
     }
-    
-    
+
     public DefaultStreamedContent testFinalDownloadFromDB(ViewStudentDocuments aModel) {
         DefaultStreamedContent finalDownload = null;
         try {
@@ -366,16 +373,20 @@ public class StudentProfileDAOImpl {
                 retrieveString = "SELECT * FROM StudentProject where userId = '" + aModel.getUserName() + "'";
                 Statement stmt = DBConn.createStatement();
                 byte[] finalProposal;
-//                DefaultStreamedContent resumeDownload = null;
                 ResultSet rs = stmt.executeQuery(retrieveString);
 
                 while (rs.next()) {
                     String finalProposalName = rs.getString("FinalProposalName");
                     finalProposal = rs.getBytes("FINALPROPOSAL");
-//                    aModel.setDownloadFile(this.binaryToDefaultStreamedContent(resume, "pdf/docx"));
                     finalDownload = new DefaultStreamedContent(new ByteArrayInputStream(finalProposal), "application/docx", finalProposalName);
                     aModel.setDownloadFinalProposal(finalDownload);
+                    String actualDownloadNumber = rs.getString("DownloadedNumber");
+                    int i = Integer.parseInt(actualDownloadNumber);
+                    downloadNumber = String.valueOf(i + 1);
                 }
+                String uploadNumber = "Update StudentProject set DownloadedNumber = '" + downloadNumber + "' where userId = '" + aModel.getUserName() + "'";
+                int i = stmt.executeUpdate(uploadNumber);
+
                 rs.close();
                 stmt.close();
             }
@@ -383,7 +394,40 @@ public class StudentProfileDAOImpl {
             System.err.println(e.getMessage());
         }
         return finalDownload;
-        
+    }
+
+    public void viewIncrement(ViewStudentDocuments aModel) {
+        try {
+            Class.forName("org.apache.derby.jdbc.ClientDriver");
+        } catch (ClassNotFoundException e) {
+            System.err.println(e.getMessage());
+            System.exit(0);
+        }
+
+        int rowCount = 0;
+        try {
+            String myDB = "jdbc:derby://localhost:1527/RepositoryDB";
+            try (Connection DBConn = DriverManager.getConnection(myDB, "itkstu", "student")) {
+                String retrieveString;
+                retrieveString = "SELECT * FROM StudentProject where userId = '" + aModel.getUserName() + "'";
+                Statement stmt = DBConn.createStatement();
+                ResultSet rs = stmt.executeQuery(retrieveString);
+
+                while (rs.next()) {
+                    String actualViewNumber = rs.getString("ViewNumber");
+                    int i = Integer.parseInt(actualViewNumber);
+                    viewNumber = String.valueOf(i + 1);
+                }
+                String uploadNumber = "Update StudentProject set ViewNumber = '" + viewNumber + "' where userId = '" + aModel.getUserName() + "'";
+                int i = stmt.executeUpdate(uploadNumber);
+                rs.close();
+                stmt.close();
+
+            }
+
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
     }
 
 }
