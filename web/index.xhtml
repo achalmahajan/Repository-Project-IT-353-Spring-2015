@@ -15,19 +15,30 @@
         <link href="resources/css/style1.css" rel="stylesheet"></link>
     </h:head>
     <h:body>
-       <!--facebook javascript for plugin required-->
-       
-       <div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&amp;version=v2.3";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-       <!--Script ends here-->
-       
-       
+        <!--facebook javascript for plugin required-->
+        <div id="fb-root"></div>
+        <script>(function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id))
+                    return;
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&amp;version=v2.3";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));</script>
+         <script src="//platform.linkedin.com/in.js" type="text/javascript"></script>
+          <script>!function (d, s, id) {
+                        var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+                        if (!d.getElementById(id)) {
+                            js = d.createElement(s);
+                            js.id = id;
+                            js.src = p + '://platform.twitter.com/widgets.js';
+                            fjs.parentNode.insertBefore(js, fjs);
+                        }
+                    }(document, 'script', 'twitter-wjs');</script>
+        <!--Script ends here-->
+
+
         <body background="resources/images/ISU.gif" class="img-responsive" />
 
         <!-- navigational Bar -->
@@ -63,7 +74,7 @@
                                                     <h:commandLink type="button" class="btn btn-primary" action="demoSearch1.xhtml">
                                                         Search
                                                     </h:commandLink>
-                                                   
+
                                                 </div> 
                                             </div>
                                         </div>
@@ -79,55 +90,83 @@
         <!-- Navigational bar close-->
         <br/><br/><br/>
         <!--<div class="jumbotron">-->
-            <div class="container">
-                <h2>Illinois State University - Thesis/Project Repository</h2>   
-            </div>
+        <div class="container">
+            <h2>Illinois State University - Thesis/Project Repository</h2>   
+        </div>
         <br/><br/><br/>
         <!--</div>-->
+      <div style="float:left;">
         <button tabindex="0" class="btn btn-lg btn-primary" role="button" data-toggle="popover" data-trigger="focus" style="height:40px; width:180px" title="Instructor" data-content="Dr. Billy Lim. ISU Professor">Instructor </button> <br/><br/>
         <button tabindex="0" class="btn btn-lg btn-primary" role="button" data-toggle="popover" data-trigger="focus" style="height:40px; width:180px" title="ISU Calendar" data-content="And here's some amazing content. It's very engaging. Right?">ISU Calendar </button><br/><br/>
         <button tabindex="0" class="btn btn-lg btn-primary" role="button" data-toggle="popover" data-trigger="focus" style="height:40px; width:180px" title="Support" data-content="And here's some amazing content. It's very engaging. Right?">Support </button><br/><br/>
         <button tabindex="0" class="btn btn-lg btn-primary" role="button" data-toggle="popover" data-trigger="focus" style="height:40px; width:180px" title="To Be Determined" data-content="And here's some amazing content. It's very engaging. Right?">To Be Determined </button><br/><br/>
         <button tabindex="0" class="btn btn-lg btn-primary" role="button" data-toggle="popover" data-trigger="focus" style="height:40px; width:180px" title="To Be Determined" data-content="And here's some amazing content. It's very engaging. Right?">To Be Determined </button><br/><br/>
-        <br /><br /><br /><br /><br/><br/><br/>
+      </div>  <!--<br /><br /><br /><br /><br/><br/><br/>-->
 
-<!--Social Plugin start-->
-<table align="center"><td><tr>
-                <a href="https://twitter.com/twitter" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false" data-dnt="true">Follow @twitter</a>
-        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script><br /><br />
-            <script src="//platform.linkedin.com/in.js" type="text/javascript"></script>
-            <script type="IN/MemberProfile" data-id="https://www.linkedin.com/in/ankitchainani" data-format="hover" data-width="100" data-related="false"></script><br /><br />
+<!--        Social Plugint table start-->
+                         
+        <table border="1" width="" cellspacing="3" style="float:right;" >
+            <thead>
+                <tr>
+                    <th>Social Plugins</th>
+                </tr>
+                
+            </thead>
+            <tbody>
+                <tr>
+                    <td> <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-action="like" data-show-faces="true" data-share="false">
+
+                        </div><br/></td>
+                </tr>
+                
+                <tr>
+                    <td><div class="g-follow" data-annotation="vertical-bubble" data-height="20" data-href="//plus.google.com/u/0/114382585249371223434" data-rel="author"></div><br/></td>
+                </tr><tr></tr>
+                <tr>
+                    <td> 
+                        <a href="https://github.com/achalmahajan/Repository-Project-IT-353-Spring-2015" target="_blank"> <img src="resources/images/GitHub-Mark-64px.png" alt="" /> </a></td>
+                </tr>
+                <tr>
+                    <td>  <a href="https://twitter.com/twitter" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false" data-dnt="true">Follow @twitter</a></td>
+                </tr><tr></tr>
+                <tr>
+                    <td><script type="IN/MemberProfile" data-id="https://www.linkedin.com/in/ankitchainani" data-format="hover" data-width="100" data-related="false"></script></td>
+                </tr>
+            </tbody>
+        </table>
+<!--</div>-->
+<!--Social Plugin ends -->
 
 
-                <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/"  data-width="30px" data-layout="button" data-action="like" data-show-faces="false" data-share="false">
-                        </div> 
-        </tr></td></table>
-    <!--Social Plugin ends--> 
-    
-    <!--footer start--> 
-               
-         <div style ="position:fixed; bottom:0; width:100%;height:45px; background:black">   
+
+
+
+
+
+
+        <!--footer start--> 
+        <div style ="position:fixed; bottom:0; width:100%;height:45px; background:black">   
             <p align="center"> <h:outputLabel value="&#169; 2015 &#160;"> 
-                   
+
                     <a href="http://IllinoisState.edu">Illinois State University</a>, 
-                  
+
                     <a href="http://maps.illinoisstate.edu">Normal, IL</a> <br />
                     <a href="aboutUs.xhtml?faces-redirect=true">About Us</a> </h:outputLabel>
-                    
+
             </p> 
         </div>
-<!--footer end--> 
+        <!--footer end--> 
 
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
         <script src="resources/js/bootstrap.js" type="text/javascript"></script>
         <script src="resources/js/bootstrap.min.js"></script>
-        
-        
+        <script src="https://apis.google.com/js/platform.js"></script>
+
+
         <script>
-          $('[data-toggle="popover"]').popover();
-            
+            $('[data-toggle="popover"]').popover();
         </script>
     </h:body>
 </html>

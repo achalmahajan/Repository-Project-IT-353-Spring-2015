@@ -6,11 +6,13 @@
 package controller;
 
 import dao.SignDAOImpl;
+import isu.ISUSMS_Service;
 import java.io.IOException;
 import java.io.Serializable;
 import javamailapp.SignUpMailApp;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.xml.ws.WebServiceRef;
 import model.SignUpModel;
 
 /**
@@ -20,6 +22,8 @@ import model.SignUpModel;
 @ManagedBean
 @SessionScoped
 public class SignUpController implements Serializable {
+    @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/gfish.it.ilstu.edu_8080/ISUTextSMS/ISUSMS.wsdl")
+    private ISUSMS_Service service;
 
     private SignUpModel theModel;
     private String result = "";
@@ -77,6 +81,10 @@ public class SignUpController implements Serializable {
         }
         int a = aProfileDAOImpl.createProfile(theModel);
         if (a == 1) {
+            String msg = "Thank you for Signing Up. Your account has been send for approval";
+            String provider = theModel.getProvider();
+            String number = theModel.getPhoneNumber();
+            sendSMS(provider, number, msg);
 
             SignUpMailApp.mailapp(theModel);
             result = " Thank you for signing with us!!! <br>";
@@ -89,9 +97,7 @@ public class SignUpController implements Serializable {
             result += "Your reason for account is :<b> " + theModel.getAccountReason() + "</b><br> <br>";
             result += "<b> Your account is been send for approval </b> ";
 
-            //send email confirmation with an embedded images that should be unique.
             return "signUpResponse.xhtml?faces-redirect=true";
-            // show resonse some more interative.
         } else {
             errorResponse = "Sorry try again";
             return "signUp.xhtml?faces-redirect=true";
@@ -109,4 +115,11 @@ public class SignUpController implements Serializable {
         return result;
     }
 
+    private String sendSMS(java.lang.String provider, java.lang.String number, java.lang.String message) {
+        // Note that the injected javax.xml.ws.Service reference as well as port objects are not thread safe.
+        // If the calling of port operations may lead to race condition some synchronization is required.
+        isu.ISUSMS port = service.getISUSMSPort();
+        return port.sendSMS(provider, number, message);
+    }
+    
 }

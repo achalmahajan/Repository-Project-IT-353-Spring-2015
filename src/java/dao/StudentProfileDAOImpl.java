@@ -15,7 +15,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import model.LoginBean;
 import model.StudentProfileBean;
 import model.ViewStudentDocuments;
 import org.primefaces.model.DefaultStreamedContent;

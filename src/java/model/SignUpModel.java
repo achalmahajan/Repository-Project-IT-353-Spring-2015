@@ -22,34 +22,13 @@ public class SignUpModel implements Serializable {
     private String password = "";
     private String confirmPassword = "";
     private String email = "";
+    private String provider = "";
+    private String phoneNumber ="";
     private String securityQuestion = "";
     private String securityAnswer = "";
     private String loginType = "";
     private String accountReason = "";
-//    private String userIdResult;
 
-//    public String getUserIdResult() {
-//       SignDAOImpl update=new SignDAOImpl();
-//       Boolean result=update.validateUserId(getUserName());
-//       if(result==false)
-//       userIdResult="User Id available";
-//       if(result==true)
-//       userIdResult="User Id already taken, please enter a new one";
-//       return userIdResult;
-//    }
-//
-//    public void setUserIdResult(String userIdResult) {
-//        this.userIdResult = userIdResult;
-//    }
-
-    public String getAccountReason() {
-        return accountReason;
-    }
-
-    public void setAccountReason(String accountReason) {
-        this.accountReason = accountReason;
-    }
-    
     /**
      * Creates a new instance of SignUpModel
     */
@@ -129,7 +108,29 @@ public class SignUpModel implements Serializable {
     public void setLoginType(String loginType) {
         this.loginType = loginType;
     }
-    
+    public String getAccountReason() {
+        return accountReason;
+    }
+
+    public void setAccountReason(String accountReason) {
+        this.accountReason = accountReason;
+    }
+
+    public String getProvider() {
+        return provider;
+    }
+
+    public void setProvider(String provider) {
+        this.provider = provider;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
     
     //Adding codes for validation
     public String checkUserID() {

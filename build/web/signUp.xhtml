@@ -83,8 +83,8 @@
                         <div class="col-sm-3">
                             <h:inputText id="userID" style="height:30px" value="#{signUpController.theModel.userName}" styleClass="form-control" >
 <!--                                <f:ajax execute="userID" event="keyup" render="userResult" listener="#{signUpController.checkUser()}"/> -->
-</h:inputText>
-<!--                            <h:outputText id="userResult" value="#{signUpController.result}" style="color:#ff0000" />-->
+                            </h:inputText>
+                            <!--                            <h:outputText id="userResult" value="#{signUpController.result}" style="color:#ff0000" />-->
                         </div>
                     </div>
                     <div class="form-group">
@@ -105,6 +105,35 @@
                             <h:inputText style="height:30px" value="#{signUpController.theModel.email}" styleClass="form-control"/>
                         </div>
                     </div>
+
+                    <div class="form-group">
+                        <h:outputLabel value="Provider" styleClass="control-label col-sm-4"/>
+                        <div class="col-sm-3">
+                            <h:selectOneMenu id="providerID" value="#{signUpController.theModel.provider}" required="true" styleClass="form-control">
+                                <f:selectItem id="provID" itemLabel="Please select a provider" itemValue="" />
+                                <f:selectItem id="proQ1" itemLabel="boost mobile" itemValue="boost mobile" />
+                                <f:selectItem id="proQ2" itemLabel="t-mobile" itemValue="t-mobile" />
+                                <f:selectItem id="proQ3" itemLabel="cingular" itemValue="cingular" />
+                                <f:selectItem id="proQ4" itemLabel="sprint nextel" itemValue="sprint nextel" />
+                                <f:selectItem id="proQ5" itemLabel="verizon" itemValue="verizon" />
+                                <f:selectItem id="proQ6" itemLabel="nextel" itemValue="nextel" />
+                                <f:selectItem id="proQ7" itemLabel="us cellular" itemValue="us cellular" />
+                                <f:selectItem id="proQ8" itemLabel="suncom" itemValue="suncom" />
+                                <f:selectItem id="proQ9" itemLabel="powertel" itemValue="powertel" />
+                                <f:selectItem id="proQ10" itemLabel="att cingular" itemValue="att cingular" />
+                                <f:selectItem id="proQ11" itemLabel="alltel" itemValue="alltel" />
+                                <f:selectItem id="proQ12" itemLabel="metro pcs" itemValue="metro pcs" />
+                            </h:selectOneMenu>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <h:outputLabel value="Phone Number" styleClass="control-label col-sm-4"/>
+                        <div class="col-sm-3">
+                            <h:inputText style="height:30px" value="#{signUpController.theModel.phoneNumber}" styleClass="form-control"/>
+                        </div>
+                    </div>
+                    
                     <div class="form-group">
                         <h:outputLabel value="Security Question" styleClass="control-label col-sm-4"/>
                         <div class="col-sm-3">
@@ -158,14 +187,14 @@
             </p> 
         </div>
         <!--footer end--> 
-        
+
         <script>
             $(document).ready(function () {
                 $(':password').pwstrength();
             });
         </script>
-        
-        
+
+
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->

@@ -63,7 +63,7 @@ public class SignUpMailApp implements Serializable {
 
             // Send the actual HTML message, as big as you like
             message.setContent("<h1>Hi "+ amail.getFirstName()+ ", This is an email verification of your sign-up on Repository Project webpage.</h1>"
-                    + "<img src=\"http://farm4.static.flickr.com/3254/3322981237_7e723b609e.jpg \" width=\"100\" height=\"100\">"
+                    + "<img src=\"http://oi60.tinypic.com/156wc9w.jpg \" width=\"100\" height=\"100\">"
                     + "<br>" + "<b>First Name: " + amail.getFirstName() + "<br>"
                     + "<b>Last Name: </b>" + amail.getLastName() + "<br>" 
                     + "<b>Email id: </b>" + amail.getEmail() + "<br>" 
