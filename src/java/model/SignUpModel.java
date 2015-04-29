@@ -5,7 +5,6 @@
  */
 package model;
 
-import dao.SignDAOImpl;
 import java.io.Serializable;
 
 /**
