@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>About Us</title>
 
@@ -10,7 +11,7 @@
         <link href="resources/css/bootstrap.css" rel="stylesheet"></link>
         <link href="resources/css/bootstrap.min.css" rel="stylesheet"></link>
         <link href="resources/css/style1.css" rel="stylesheet"></link>
-        
+
     </h:head>
     <h:body>
         <body background="resources/images/ISU.gif" class="img-responsive" />
@@ -61,46 +62,57 @@
             </div>
         </div>
         <!-- Navigational bar close-->
-
-        
+        <br/><br/><br/>
         <h:form>
-    <p:growl id="msgs" showDetail="true" />
- 
-    <p:fieldset legend="Basic" style="margin-bottom:20px">
-        <h:panelGrid columns="2" cellpadding="5">
-            <p:graphicImage url="https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/090/1d0/2c0f7df.jpg" />
-            <h:outputText
-                value="The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.
-                His beloved son Michael has just come home from the war, but does not intend to become part of his father's business. T
-                hrough Michael's life the nature of the family business becomes clear. The business of the family is just like the head of the family, kind and benevolent to those who give respect,
-                but given to ruthless violence whenever anything stands against the good of the family." />
-        </h:panelGrid>
-        
-        <h:panelGrid columns="2" cellpadding="5">
-            <p:graphicImage url="https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/090/1d0/2c0f7df.jpg" />
-            <h:outputText
-                value="The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.
-                His beloved son Michael has just come home from the war, but does not intend to become part of his father's business. T
-                hrough Michael's life the nature of the family business becomes clear. The business of the family is just like the head of the family, kind and benevolent to those who give respect,
-                but given to ruthless violence whenever anything stands against the good of the family." />
-        </h:panelGrid>
-    </p:fieldset>
-        
+            <!--<p:growl id="msgs" showDetail="true" />-->
+
+            <p:fieldset legend="About Us" style="margin-bottom:20px">
+                <h:panelGrid columns="2" cellpadding="5">
+                    <p:graphicImage url="https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/090/1d0/2c0f7df.jpg" style="width: 200px; height: 200px;" />
+                    <h:outputText
+                        value="I am Achal Mahajan currently pursuing Masters in Web Application and Development at 
+                        Illinois State University, Normal ,IL- USA. This Project was part of my Graduate Curriculum.
+                        You can view my LinkedIn profile for more details.">
+                    </h:outputText>
+                    <a href="https://www.linkedin.com/profile/preview?locale=en_US&amp;trk=prof-0-sb-preview-primary-button"> 
+                        <img src="resources/images/in.png" alt=""/> </a>
+                </h:panelGrid>
+                <br/>
+
+
+                <h:panelGrid columns="2" cellpadding="5">
+                    <p:graphicImage url="https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAGGAAAAJGUxZGJjYjU5LWQwOWYtNGQzYS04YjhiLWViYjgwMzJmMDU3ZQ.jpg" style="width: 200px; height: 200px;" />
+                    <h:outputText
+                        value="I am Ankit Chainani currently pursuing Masters in Web Application and Development at 
+                        Illinois State University, Normal ,IL- USA. This Project was part of my Graduate Curriculum.
+                        You can view my LinkedIn profile for more details." />
+                    <a href="https://www.linkedin.com/in/ankitchainani"> 
+                        <img src="resources/images/in.png" alt=""/> </a>
+                </h:panelGrid>
+
+
+                <h:panelGrid columns="2" cellpadding="5">
+                    <p:graphicImage url="https://lh3.googleusercontent.com/-Fr9k11GICsI/AAAAAAAAAAI/AAAAAAAAAAA/iN7rGlkm68M/photo.jpg" style="width: 200px; height: 200px;" />
+                    <h:outputText
+                        value="I am Sonali Sharma currently pursuing Masters in Web Application and Development at 
+                        Illinois State University, Normal ,IL- USA. This Project was part of my Graduate Curriculum.
+                        You can view my LinkedIn profile for more details." />
+                    <a href="https://www.linkedin.com/profile/view?id=188714797&amp;authType=NAME_SEARCH&amp;authToken=f5TE&amp;locale=en_US&amp;trk=tyah&amp;trkInfo=clickedVertical%3Amynetwork%2Cidx%3A1-2-2%2CtarId%3A1430293589548%2Ctas%3Asonali+ch"> 
+                        <img src="resources/images/in.png" alt=""/> </a>
+                </h:panelGrid>
+            </p:fieldset>
+
         </h:form>
-        
-        
-        
 
-
-<!--footer start--> 
-         <div style ="position:fixed; bottom:0; width:100%;height:45px; background:black">   
+        <!--footer start--> 
+        <div style ="position:fixed; bottom:0; width:100%;height:45px; background:black">   
             <p align="center"> <h:outputLabel value="&#169; 2015 &#160;"> 
                     <a href="http://IllinoisState.edu">Illinois State University</a>, 
                     <a href="http://maps.illinoisstate.edu">Normal, IL</a> <br />
                     <a href="aboutUs.xhtml?faces-redirect=true">About Us</a> </h:outputLabel>
             </p> 
         </div>
-<!--footer end--> 
+        <!--footer end--> 
 
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>

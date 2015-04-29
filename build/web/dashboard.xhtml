@@ -35,11 +35,8 @@
                             <div id="navbar" class="navbar-collapse collapse">
                                 <ul class="nav navbar-nav">
                                     <li> <h:commandLink  action="approveStudents?faces-redirect=true" value="Students Need Approval" /></li>
-                                    <li> <h:commandLink  action="dashboard?faces-redirect=true" value="Dashboard" /></li>
-                                    <li><h:commandLink action="#{loginController.logout()}" value="Log Out" /></li>
-                                </ul>
-                                <ul class="nav navbar-right">
-
+                                    <li class="active"> <h:commandLink  action="dashboard?faces-redirect=true" value="Dashboard" /></li>
+                                    <li ><h:commandLink action="#{loginController.logout()}" value="Log Out" /></li>
                                 </ul>
                             </div>
                         </h:form>

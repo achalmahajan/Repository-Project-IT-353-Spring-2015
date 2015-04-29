@@ -10,6 +10,7 @@ import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 import javamailapp.AdminRejectMailApp;
+import javax.faces.bean.ManagedBean;
 import model.AdminApprovalBean;
 
 /**
@@ -17,6 +18,7 @@ import model.AdminApprovalBean;
  * @author it3530123
  */
 @Named(value = "adminApprovalController")
+@ManagedBean
 @SessionScoped
 public class AdminApprovalController implements Serializable {
 

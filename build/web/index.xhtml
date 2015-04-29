@@ -13,32 +13,10 @@
         <link href="resources/css/bootstrap.css" rel="stylesheet"></link>
         <link href="resources/css/bootstrap.min.css" rel="stylesheet"></link>
         <link href="resources/css/style1.css" rel="stylesheet"></link>
+        <script src="resources/js/jquery.csbuttons.js" type="text/javascript"></script>
+        <script src="resources/js/jquery.csbuttons.min.js" type="text/javascript"></script>
     </h:head>
     <h:body>
-        <!--facebook javascript for plugin required-->
-        <div id="fb-root"></div>
-        <script>(function (d, s, id) {
-                var js, fjs = d.getElementsByTagName(s)[0];
-                if (d.getElementById(id))
-                    return;
-                js = d.createElement(s);
-                js.id = id;
-                js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&amp;version=v2.3";
-                fjs.parentNode.insertBefore(js, fjs);
-            }(document, 'script', 'facebook-jssdk'));</script>
-         <script src="//platform.linkedin.com/in.js" type="text/javascript"></script>
-          <script>!function (d, s, id) {
-                        var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
-                        if (!d.getElementById(id)) {
-                            js = d.createElement(s);
-                            js.id = id;
-                            js.src = p + '://platform.twitter.com/widgets.js';
-                            fjs.parentNode.insertBefore(js, fjs);
-                        }
-                    }(document, 'script', 'twitter-wjs');</script>
-        <!--Script ends here-->
-
-
         <body background="resources/images/ISU.gif" class="img-responsive" />
 
         <!-- navigational Bar -->
@@ -91,58 +69,29 @@
         <br/><br/><br/>
         <!--<div class="jumbotron">-->
         <div class="container">
-            <h2>Illinois State University - Thesis/Project Repository</h2>   
+            <table cellspacing="3" style="float: right;">
+                <tbody>
+                    <td> 
+                        <a href="https://github.com/achalmahajan/Repository-Project-IT-353-Spring-2015" target="_blank"> <img src="resources/images/GitHub-Mark-64px.png" alt="" width="40px" height="40px" style="padding-left:5px;"/> </a></td>
+                    <td>  <a href="https://www.facebook.com/ankeyy656" target="_blank"> <img src="resources/images/fb.png" alt=""/></a>  </td> 
+                    <td>  <a href="//plus.google.com/u/0/114382585249371223434" target="_blank">  <img src="resources/images/gp.png" alt=""/></a></td> 
+                    <td> <a href="https://twitter.com/ankit_chainani" target="_blank"> <img src="resources/images/tw.png" alt=""/> </a></td>
+                    <td> <a href="https://www.linkedin.com/in/ankitchainani" target="_blank"> <img src="resources/images/in.png" alt=""/></a></td>
+                </tbody>
+            </table>
+
+            <td><tr>
+                    <h2><strong>ILLINOIS STATE UNIVERSITY </strong><small><strong>THESIS/PROJECT 
+                                REPOSITORY</strong></small></h2>
+                </tr></td>
         </div>
         <br/><br/><br/>
-        <!--</div>-->
-      <div style="float:left;">
-        <button tabindex="0" class="btn btn-lg btn-primary" role="button" data-toggle="popover" data-trigger="focus" style="height:40px; width:180px" title="Instructor" data-content="Dr. Billy Lim. ISU Professor">Instructor </button> <br/><br/>
-        <button tabindex="0" class="btn btn-lg btn-primary" role="button" data-toggle="popover" data-trigger="focus" style="height:40px; width:180px" title="ISU Calendar" data-content="And here's some amazing content. It's very engaging. Right?">ISU Calendar </button><br/><br/>
-        <button tabindex="0" class="btn btn-lg btn-primary" role="button" data-toggle="popover" data-trigger="focus" style="height:40px; width:180px" title="Support" data-content="And here's some amazing content. It's very engaging. Right?">Support </button><br/><br/>
-        <button tabindex="0" class="btn btn-lg btn-primary" role="button" data-toggle="popover" data-trigger="focus" style="height:40px; width:180px" title="To Be Determined" data-content="And here's some amazing content. It's very engaging. Right?">To Be Determined </button><br/><br/>
-        <button tabindex="0" class="btn btn-lg btn-primary" role="button" data-toggle="popover" data-trigger="focus" style="height:40px; width:180px" title="To Be Determined" data-content="And here's some amazing content. It's very engaging. Right?">To Be Determined </button><br/><br/>
-      </div>  <!--<br /><br /><br /><br /><br/><br/><br/>-->
 
-<!--        Social Plugint table start-->
-                         
-        <table border="1" width="" cellspacing="3" style="float:right;" >
-            <thead>
-                <tr>
-                    <th>Social Plugins</th>
-                </tr>
-                
-            </thead>
-            <tbody>
-                <tr>
-                    <td> <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-action="like" data-show-faces="true" data-share="false">
-
-                        </div><br/></td>
-                </tr>
-                
-                <tr>
-                    <td><div class="g-follow" data-annotation="vertical-bubble" data-height="20" data-href="//plus.google.com/u/0/114382585249371223434" data-rel="author"></div><br/></td>
-                </tr><tr></tr>
-                <tr>
-                    <td> 
-                        <a href="https://github.com/achalmahajan/Repository-Project-IT-353-Spring-2015" target="_blank"> <img src="resources/images/GitHub-Mark-64px.png" alt="" /> </a></td>
-                </tr>
-                <tr>
-                    <td>  <a href="https://twitter.com/twitter" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false" data-dnt="true">Follow @twitter</a></td>
-                </tr><tr></tr>
-                <tr>
-                    <td><script type="IN/MemberProfile" data-id="https://www.linkedin.com/in/ankitchainani" data-format="hover" data-width="100" data-related="false"></script></td>
-                </tr>
-            </tbody>
-        </table>
-<!--</div>-->
-<!--Social Plugin ends -->
-
-
-
-
-
-
-
+        <div style="float:left;">
+            <button tabindex="0" class="btn btn-lg btn-primary" role="button" data-toggle="popover" data-trigger="focus" style="height:40px; width:180px" title="Instructor" data-content="Dr. Billy Lim. ISU Professor">Instructor </button> <br/><br/><br/>
+            <button tabindex="0" class="btn btn-lg btn-primary" role="button" data-toggle="popover" data-trigger="focus" style="height:40px; width:180px" title="ISU Calendar" data-content="Please visit this link: https://my.illinoisstate.edu/">ISU Calendar </button><br/><br/><br/>
+            <button tabindex="0" class="btn btn-lg btn-primary" role="button" data-toggle="popover" data-trigger="focus" style="height:40px; width:180px" title="Support" data-content="Contact us at +1(309)-291-1247">Support </button><br/><br/>
+        </div>
 
         <!--footer start--> 
         <div style ="position:fixed; bottom:0; width:100%;height:45px; background:black">   
@@ -163,7 +112,6 @@
         <script src="resources/js/bootstrap.js" type="text/javascript"></script>
         <script src="resources/js/bootstrap.min.js"></script>
         <script src="https://apis.google.com/js/platform.js"></script>
-
 
         <script>
             $('[data-toggle="popover"]').popover();
