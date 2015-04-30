@@ -49,7 +49,7 @@ public class SearchDAO implements Serializable {
         }
 
         try {
-            String myDB = "jdbc:derby://localhost:1527/RepositoryDB";            // connection string, jdbc: protocol for db; derby is the db;
+            String myDB = "jdbc:derby://gfish2.it.ilstu.edu:1527/amahaja_Sp2015_RepositoryDB";         // connection string, jdbc: protocol for db; derby is the db;
             Connection DBConn = DriverManager.getConnection(myDB, "itkstu", "student");
             Statement stmt = DBConn.createStatement();
             ResultSet rs = stmt.executeQuery(sqlStr);

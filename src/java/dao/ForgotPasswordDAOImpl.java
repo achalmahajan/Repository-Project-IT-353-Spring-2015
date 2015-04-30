@@ -29,7 +29,7 @@ public class ForgotPasswordDAOImpl {
         
         int rowCount = 0;
           try {
-            String myDB = "jdbc:derby://localhost:1527/RepositoryDB";
+            String myDB = "jdbc:derby://gfish2.it.ilstu.edu:1527/amahaja_Sp2015_RepositoryDB";
             try (Connection DBConn = DriverManager.getConnection(myDB, "itkstu", "student")) {
                 String stringQuery;
                 Statement stmt = DBConn.createStatement();

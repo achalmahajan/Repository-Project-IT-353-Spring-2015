@@ -38,7 +38,7 @@ public class StudentProfileDAOImpl {
 
         int rowCount = 0;
         try {
-            String myDB = "jdbc:derby://localhost:1527/RepositoryDB";
+            String myDB = "jdbc:derby://gfish2.it.ilstu.edu:1527/amahaja_Sp2015_RepositoryDB";
             try (Connection DBConn = DriverManager.getConnection(myDB, "itkstu", "student")) {
                 String insertString;
                 String combinedString = aModel.getProjectName() + " " + aModel.getKeywords() + " " + aModel.getProjectAbstract();
@@ -84,7 +84,7 @@ public class StudentProfileDAOImpl {
 
         int rowCount = 0;
         try {
-            String myDB = "jdbc:derby://localhost:1527/RepositoryDB";
+            String myDB = "jdbc:derby://gfish2.it.ilstu.edu:1527/amahaja_Sp2015_RepositoryDB";
             try (Connection DBConn = DriverManager.getConnection(myDB, "itkstu", "student")) {
                 String insertString;
                 insertString = "UPDATE student SET gender=? , phone=?, course=?, major=?, semcompleted=? WHERE userId = '" + aModel.getName() + "'";
@@ -118,7 +118,7 @@ public class StudentProfileDAOImpl {
 
         int rowCount = 0;
         try {
-            String myDB = "jdbc:derby://localhost:1527/RepositoryDB";
+            String myDB = "jdbc:derby://gfish2.it.ilstu.edu:1527/amahaja_Sp2015_RepositoryDB";
             try (Connection DBConn = DriverManager.getConnection(myDB, "itkstu", "student")) {
                 String retrieveString;
                 retrieveString = "SELECT * FROM StudentProject where userId = '" + aModel.getName() + "'";
@@ -156,7 +156,7 @@ public class StudentProfileDAOImpl {
 
         int rowCount = 0;
         try {
-            String myDB = "jdbc:derby://localhost:1527/RepositoryDB";
+            String myDB = "jdbc:derby://gfish2.it.ilstu.edu:1527/amahaja_Sp2015_RepositoryDB";
             try (Connection DBConn = DriverManager.getConnection(myDB, "itkstu", "student")) {
                 String retrieveString;
                 retrieveString = "SELECT * FROM StudentProject where userId = '" + aModel.getName() + "'";
@@ -192,7 +192,7 @@ public class StudentProfileDAOImpl {
 
         int rowCount = 0;
         try {
-            String myDB = "jdbc:derby://localhost:1527/RepositoryDB";
+            String myDB = "jdbc:derby://gfish2.it.ilstu.edu:1527/amahaja_Sp2015_RepositoryDB";
             try (Connection DBConn = DriverManager.getConnection(myDB, "itkstu", "student")) {
                 String fetchString;
                 fetchString = "SELECT * FROM Student where userId = '" + userName + "'";
@@ -227,7 +227,7 @@ public class StudentProfileDAOImpl {
 
         int rowCount = 0;
         try {
-            String myDB = "jdbc:derby://localhost:1527/RepositoryDB";
+            String myDB = "jdbc:derby://gfish2.it.ilstu.edu:1527/amahaja_Sp2015_RepositoryDB";
             try (Connection DBConn = DriverManager.getConnection(myDB, "itkstu", "student")) {
                 String fetchDocumentStr;
                 fetchDocumentStr = "SELECT * FROM StudentProject where userId = '" + userName + "'";
@@ -282,7 +282,7 @@ public class StudentProfileDAOImpl {
         }
 
         try {
-            String myDB = "jdbc:derby://localhost:1527/RepositoryDB";            // connection string, jdbc: protocol for db; derby is the db;
+            String myDB = "jdbc:derby://gfish2.it.ilstu.edu:1527/amahaja_Sp2015_RepositoryDB";            // connection string, jdbc: protocol for db; derby is the db;
             Connection DBConn = DriverManager.getConnection(myDB, "itkstu", "student");
             Statement stmt = DBConn.createStatement();
             ResultSet rs = stmt.executeQuery(sqlStr);
@@ -325,7 +325,7 @@ public class StudentProfileDAOImpl {
 
         int rowCount = 0;
         try {
-            String myDB = "jdbc:derby://localhost:1527/RepositoryDB";
+            String myDB = "jdbc:derby://gfish2.it.ilstu.edu:1527/amahaja_Sp2015_RepositoryDB";
             try (Connection DBConn = DriverManager.getConnection(myDB, "itkstu", "student")) {
                 String retrieveString;
                 retrieveString = "SELECT * FROM StudentProject where userId = '" + aModel.getUserName() + "'";
@@ -366,7 +366,7 @@ public class StudentProfileDAOImpl {
 
         int rowCount = 0;
         try {
-            String myDB = "jdbc:derby://localhost:1527/RepositoryDB";
+            String myDB = "jdbc:derby://gfish2.it.ilstu.edu:1527/amahaja_Sp2015_RepositoryDB";
             try (Connection DBConn = DriverManager.getConnection(myDB, "itkstu", "student")) {
                 String retrieveString;
                 retrieveString = "SELECT * FROM StudentProject where userId = '" + aModel.getUserName() + "'";
@@ -405,7 +405,7 @@ public class StudentProfileDAOImpl {
 
         int rowCount = 0;
         try {
-            String myDB = "jdbc:derby://localhost:1527/RepositoryDB";
+            String myDB = "jdbc:derby://gfish2.it.ilstu.edu:1527/amahaja_Sp2015_RepositoryDB";
             try (Connection DBConn = DriverManager.getConnection(myDB, "itkstu", "student")) {
                 String retrieveString;
                 retrieveString = "SELECT * FROM StudentProject where userId = '" + aModel.getUserName() + "'";

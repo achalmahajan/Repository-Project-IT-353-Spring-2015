@@ -43,7 +43,7 @@ public class AdminApprovalDAOImpl implements Serializable {
 
         int rowCount = 0;
         try {
-            String myDB = "jdbc:derby://localhost:1527/RepositoryDB";
+            String myDB = "jdbc:derby://gfish2.it.ilstu.edu:1527/amahaja_Sp2015_RepositoryDB";
             try (Connection DBConn = DriverManager.getConnection(myDB, "itkstu", "student")) {
                 String insertString;
                 insertString = "SELECT * FROM ITKSTU.SignUpApproval where userID = '" + name + "'";
@@ -73,7 +73,7 @@ public class AdminApprovalDAOImpl implements Serializable {
         }
 
         try {
-            String myDB = "jdbc:derby://localhost:1527/RepositoryDB";
+            String myDB = "jdbc:derby://gfish2.it.ilstu.edu:1527/amahaja_Sp2015_RepositoryDB";
             try (Connection DBConn = DriverManager.getConnection(myDB, "itkstu", "student")) {
                 String insertString;
                 //Statement stmt = DBConn.createStatement();
@@ -100,7 +100,7 @@ public class AdminApprovalDAOImpl implements Serializable {
         if (loginType.equals("student")) {
 
             try {
-                String myDB = "jdbc:derby://localhost:1527/RepositoryDB";
+                String myDB = "jdbc:derby://gfish2.it.ilstu.edu:1527/amahaja_Sp2015_RepositoryDB";
                 try (Connection DBConn = DriverManager.getConnection(myDB, "itkstu", "student")) {
                     String insertString;
                     //Statement stmt = DBConn.createStatement();
@@ -118,7 +118,7 @@ public class AdminApprovalDAOImpl implements Serializable {
             }
 
             try {
-                String myDB = "jdbc:derby://localhost:1527/RepositoryDB";
+                String myDB = "jdbc:derby://gfish2.it.ilstu.edu:1527/amahaja_Sp2015_RepositoryDB";
                 try (Connection DBConn = DriverManager.getConnection(myDB, "itkstu", "student")) {
                     String insertString;
                     //Statement stmt = DBConn.createStatement();
@@ -137,7 +137,7 @@ public class AdminApprovalDAOImpl implements Serializable {
         }
 
         try {
-            String myDB = "jdbc:derby://localhost:1527/RepositoryDB";
+            String myDB = "jdbc:derby://gfish2.it.ilstu.edu:1527/amahaja_Sp2015_RepositoryDB";
             try (Connection DBConn = DriverManager.getConnection(myDB, "itkstu", "student")) {
                 String deleteString;
                 //Statement stmt = DBConn.createStatement();
@@ -159,7 +159,7 @@ public class AdminApprovalDAOImpl implements Serializable {
 
         boolean result = false;
         try {
-            String myDB = "jdbc:derby://localhost:1527/RepositoryDB";
+            String myDB = "jdbc:derby://gfish2.it.ilstu.edu:1527/amahaja_Sp2015_RepositoryDB";
             try (Connection DBConn = DriverManager.getConnection(myDB, "itkstu", "student")) {
                 String insertString;
                 String name = theModel.getUserName();
@@ -184,7 +184,7 @@ public class AdminApprovalDAOImpl implements Serializable {
         }
 
         try {
-            String myDB = "jdbc:derby://localhost:1527/RepositoryDB";
+            String myDB = "jdbc:derby://gfish2.it.ilstu.edu:1527/amahaja_Sp2015_RepositoryDB";
             try (Connection DBConn = DriverManager.getConnection(myDB, "itkstu", "student")) {
 
                 String deleteString;
